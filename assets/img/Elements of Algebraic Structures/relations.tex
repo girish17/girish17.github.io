@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\section*{Relations}
+
+Let $\rho \subseteq A \times A$ be a relation on a set $A$.
+
+\begin{enumerate}
+    \item \textbf{Reflexive:} \\
+    $\forall a \in A, (a, a) \in \rho$
+    
+    \item \textbf{Symmetric:} \\
+    $(a, b) \in \rho$ implies $(b, a) \in \rho$
+    
+    \item \textbf{Transitive:} \\
+    $(a, b) \in \rho$ and $(b, c) \in \rho$ implies $(a, c) \in \rho$
+    
+    \item \textbf{Antisymmetric:} \\
+    $(a, b) \in \rho$ and $(b, a) \in \rho$ simultaneously hold iff $a = b$
+\end{enumerate}
+
+\begin{itemize}
+    \item $\rho \subseteq A \times A$ is an \textbf{equivalence relation} if it is reflexive, symmetric and transitive.
+    
+    \item $\rho \subseteq A \times A$ is an \textbf{ordering} if it is reflexive, anti-symmetric and transitive.
+    
+    \item[] \textbf{e.g.} Let $\mathbb{Z}^+$ be the set of positive integers. \\
+    We say $a \sim b$ if $a | b$ (a divides b) $\longrightarrow$ \textit{Ordering}
+    
+    \item[] \textbf{e.g.} Let $X$ be any set and $P(X)$ be the set of all subsets of $X$ [Power set of $X$, sometimes denoted as $2^X$]. \\
+    For $A, B \in P(X)$ define $A \sim B$ if $A \subseteq B$ $\longrightarrow$ \textit{(Ordering)}
+    
+    \item An ordering $\rho$ is called a \textbf{linear ordering} if $\forall x, y \in A$ either $(x, y) \in \rho$ or $(y, x) \in \rho$.
+\end{itemize}
+
+\subsection*{Equivalence Class}
+Let $\rho \subseteq A \times A$
+\begin{enumerate}
+    \item[i)] For every $a \in A, cl(a)$ is non-empty.
+    \item[ii)] For any $a, b \in A$ either $cl(a) = cl(b)$ or $cl(a) \cap cl(b) = \phi$
+\end{enumerate}
+
+\noindent \textbf{Proof:} Let $a, b \in A$ \\
+\textbf{Case I:} $(a, b) \in \rho$ \\
+Let $x \in cl(a)$, then $(x, a) \in \rho$
+
+\end{document}
