@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { getPostContent } from '../../data/postsContent'
 import { posts } from '../../data/posts'
@@ -16,6 +16,11 @@ interface NavPost {
   title: string
 }
 
+interface ImageNote {
+  url: string
+  alt: string
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const [content, setContent] = useState<string>('')
@@ -23,6 +28,20 @@ export default function BlogPost() {
   const [prevPost, setPrevPost] = useState<NavPost | null>(null)
   const [nextPost, setNextPost] = useState<NavPost | null>(null)
   
+  // Lightbox state
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
+
+  // Extract images from content for navigation
+  const images = useMemo(() => {
+    const imgRegex = /\[([^\]]*)\]\(([^)]+\.(?:jpg|jpeg|png|gif))\)/g
+    const foundImages: ImageNote[] = []
+    let match
+    while ((match = imgRegex.exec(content)) !== null) {
+      foundImages.push({ alt: match[1], url: match[2] })
+    }
+    return foundImages
+  }, [content])
+
   useEffect(() => {
     if (content) {
       window.scrollTo(0, 0);
@@ -55,6 +74,24 @@ export default function BlogPost() {
       }
     }
   }, [slug])
+
+  const openLightbox = (url: string) => {
+    const index = images.findIndex(img => img.url === url)
+    if (index !== -1) {
+      setSelectedImageIndex(index)
+    }
+  }
+
+  const navigateImage = (direction: 'next' | 'prev', e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    if (selectedImageIndex === null) return
+    
+    if (direction === 'next') {
+      setSelectedImageIndex((selectedImageIndex + 1) % images.length)
+    } else {
+      setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length)
+    }
+  }
   
   if (!content) {
     return (
@@ -88,7 +125,38 @@ export default function BlogPost() {
           </header>
           
           <div id="post-content" className="prose-lg max-w-none text-slate-300">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                a: ({ node, ...props }) => {
+                  const isImage = props.href?.match(/\.(?:jpg|jpeg|png|gif)$/)
+                  if (isImage) {
+                    return (
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault()
+                          openLightbox(props.href || '')
+                        }}
+                        className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                      >
+                        {props.children}
+                      </button>
+                    )
+                  }
+                  return <a {...props} />
+                },
+                img: ({ node, ...props }) => (
+                  <motion.img 
+                    {...props} 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="rounded-xl border border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-colors my-8"
+                    onClick={() => openLightbox(props.src || '')}
+                  />
+                )
+              }}
+            >
+              {content}
+            </ReactMarkdown>
           </div>
           
           <nav className="mt-16 pt-8 border-t border-slate-800 flex justify-between items-center">
@@ -98,7 +166,7 @@ export default function BlogPost() {
                 className="group flex flex-col items-start"
               >
                 <span className="text-sm text-slate-500 mb-1">← Previous</span>
-                <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors text-left">
                   {prevPost.title}
                 </span>
               </Link>
@@ -122,6 +190,59 @@ export default function BlogPost() {
           </nav>
         </article>
       </motion.div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={() => setSelectedImageIndex(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 text-slate-400 hover:text-white text-4xl z-50 p-2"
+              onClick={() => setSelectedImageIndex(null)}
+            >
+              ×
+            </button>
+
+            {images.length > 1 && (
+              <>
+                <button 
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all z-50"
+                  onClick={(e) => navigateImage('prev', e)}
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button 
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all z-50"
+                  onClick={(e) => navigateImage('next', e)}
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 text-sm bg-slate-900/50 px-4 py-2 rounded-full backdrop-blur-md">
+                  {selectedImageIndex + 1} / {images.length}: {images[selectedImageIndex].alt}
+                </div>
+              </>
+            )}
+
+            <motion.img 
+              key={selectedImageIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              src={images[selectedImageIndex].url} 
+              alt={images[selectedImageIndex].alt}
+              className="max-w-full max-h-[85vh] rounded-lg shadow-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
