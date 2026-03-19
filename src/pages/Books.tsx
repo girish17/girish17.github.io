@@ -84,6 +84,8 @@ const booksByCategory: Record<string, Book[]> = {
     { title: 'The Book of Disquiet', author: 'Fernando Pessoa' },
     { title: 'Metamorphosis', author: 'Franz Kafka' },
     { title: 'The Shining', author: 'Stephen King' },
+    { title: 'Lolita', author: 'Vladimir Nabokov' },
+    { title: 'Kafka on the Shore', author: 'Haruki Murakami' },
   ],
   'Psychology, Business & Society': [
     { title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman' },
