@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 
 const services = [
   {
-    title: 'Server-side Software Development',
-    description: 'Custom backend development using modern technologies.',
-    tech: ['TypeScript', 'JavaScript', 'Java', 'Go'],
+    title: 'AI/ML Software Development',
+    description: 'Custom AI/ML solutions using modern frameworks and cloud platforms.',
+    tech: ['Azure ML', 'Python', 'Jupyter'],
   },
   {
     title: 'Software Deployment & Orchestration',
@@ -12,9 +12,9 @@ const services = [
     tech: ['Linux', 'Docker', 'DevOps'],
   },
   {
-    title: 'AI/ML Software Development',
-    description: 'Custom AI/ML solutions using modern frameworks and cloud platforms.',
-    tech: ['Azure ML', 'Python', 'Jupyter'],
+    title: 'Server-side Software Development',
+    description: 'Custom backend development using modern technologies.',
+    tech: ['TypeScript', 'JavaScript', 'Java', 'Go'],
   },
   {
     title: 'Open Source Consulting',
