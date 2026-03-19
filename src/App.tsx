@@ -8,7 +8,6 @@ import Books from './pages/Books'
 import Writings from './pages/Writings'
 import Photos from './pages/Photos'
 import BlogPost from './pages/blog/MarkdownBlogPost'
-import FlossPost from './pages/blog/FlossPost'
 
 function App() {
   return (
