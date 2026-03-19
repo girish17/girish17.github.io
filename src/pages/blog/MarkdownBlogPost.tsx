@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import { getPostContent } from '../../data/postsContent'
 import { posts } from '../../data/posts'
 
@@ -126,6 +127,7 @@ export default function BlogPost() {
           
           <div id="post-content" className="prose-lg max-w-none text-slate-300">
             <ReactMarkdown
+              rehypePlugins={[rehypeRaw]}
               components={{
                 a: ({ node, ...props }) => {
                   const isImage = props.href?.match(/\.(?:jpg|jpeg|png|gif)$/)
