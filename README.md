@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Girish M - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for my personal portfolio website, overhauled with a modern tech stack.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** React 19 (TypeScript)
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS 4
+- **Animations:** Framer Motion
+- **Content:** Markdown (processed via `react-markdown`)
+- **Math Rendering:** MathJax 3
+- **Deployment:** GitHub Pages (automated via GitHub Actions)
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Responsive Design:** Optimized for both mobile and desktop reading.
+- **Markdown-Based Blog:** Content is managed via Markdown files in `src/posts/`.
+- **LaTeX Support:** Full support for mathematical equations and symbols in blog entries.
+- **Antilibrary:** A searchable/categorized collection of books I own or recommend.
+- **Handwritten Notes:** Integrated gallery with lightbox navigation for study notes.
+- **SPA Routing:** Seamless navigation using `HashRouter` for reliable deployment.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/pages/`: Main application pages (Home, Blog, Projects, etc.)
+- `src/posts/`: Markdown files for all blog entries.
+- `src/data/`: Data definitions for posts and library items.
+- `public/assets/img/`: Optimized images and assets for production.
+- `.github/workflows/`: Automated deployment configuration.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Local Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/girish17/girish17.github.io.git
+   cd girish17.github.io
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Deployment
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The website is automatically built and deployed to the `gh-pages` branch whenever changes are pushed to the `master` branch.
+
+- **URL:** [https://girishm.info](https://girishm.info)
+
+## License
+
+This website is free software: you can redistribute it and/or modify it under the terms of the Creative Commons Attribution 4.0 International License.
