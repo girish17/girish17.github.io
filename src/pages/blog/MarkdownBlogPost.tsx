@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
-import remarkMath from 'remark-math'
-import rehypeMathjax from 'rehype-mathjax'
 import { getPostContent } from '../../data/postsContent'
 import { posts } from '../../data/posts'
 
@@ -18,12 +16,31 @@ interface NavPost {
   title: string
 }
 
+function loadMathJax() {
+  if (!(window as any).MathJax) {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+    script.async = true
+    document.head.appendChild(script)
+  }
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const [content, setContent] = useState<string>('')
   const [metadata, setMetadata] = useState<PostMetadata>({ title: '', category: '', excerpt: '' })
   const [prevPost, setPrevPost] = useState<NavPost | null>(null)
   const [nextPost, setNextPost] = useState<NavPost | null>(null)
+  
+  useEffect(() => {
+    loadMathJax()
+  }, [])
+  
+  useEffect(() => {
+    if (content && (window as any).MathJax) {
+      (window as any).MathJax.typesetPromise?.()
+    }
+  }, [content])
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -78,12 +95,7 @@ export default function BlogPost() {
           </header>
           
           <div className="prose-lg max-w-none text-slate-300">
-            <ReactMarkdown 
-              remarkPlugins={[remarkMath]} 
-              rehypePlugins={[rehypeMathjax]}
-            >
-              {content}
-            </ReactMarkdown>
+            <ReactMarkdown>{content}</ReactMarkdown>
           </div>
           
           <nav className="mt-16 pt-8 border-t border-slate-800 flex justify-between items-center">
