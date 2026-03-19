@@ -1,6 +1,7 @@
 import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ScrollToTop from './ScrollToTop'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -103,6 +104,8 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      <ScrollToTop />
     </div>
   )
 }
