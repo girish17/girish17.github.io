@@ -14,7 +14,7 @@ Let $f: N \longrightarrow N$ be defined by
 
 $$
 f(n) = \begin{cases} 
-n/2 & \text{n even} \\
+n/2 & \text{n even} \\\\
 3n+1 & \text{n odd}
 \end{cases}
 $$
