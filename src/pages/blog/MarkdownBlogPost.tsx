@@ -16,15 +16,6 @@ interface NavPost {
   title: string
 }
 
-function loadMathJax() {
-  if (!(window as any).MathJax) {
-    const script = document.createElement('script')
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
-    script.async = true
-    document.head.appendChild(script)
-  }
-}
-
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const [content, setContent] = useState<string>('')
@@ -33,12 +24,10 @@ export default function BlogPost() {
   const [nextPost, setNextPost] = useState<NavPost | null>(null)
   
   useEffect(() => {
-    loadMathJax()
-  }, [])
-  
-  useEffect(() => {
     if (content && (window as any).MathJax) {
-      (window as any).MathJax.typesetPromise?.()
+      setTimeout(() => {
+        (window as any).MathJax.typesetPromise?.()
+      }, 100)
     }
   }, [content])
   
