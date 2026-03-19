@@ -43,6 +43,7 @@ export default function BlogPost() {
   }, [content])
   
   useEffect(() => {
+    window.scrollTo(0, 0)
     const result = getPostContent(slug || '')
     if (result) {
       setMetadata(result.metadata)
