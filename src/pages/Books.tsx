@@ -52,7 +52,7 @@ const booksByCategory: Record<string, Book[]> = {
   ],
   'Mathematics & Sciences': [
     { title: 'Topics in Algebra', author: 'Herstein', slug: 'topics-in-algebra' },
-    { title: 'Linear Algebra', author: 'Hoffman, Kunze' },
+    { title: 'Linear Algebra', author: 'Hoffman, Kunze', slug: 'fields' },
     { title: 'Discrete Mathematics for Computer Scientists and Mathematicians', author: 'Mott, Kandel, Baker' },
     { title: 'Advanced Engineering Mathematics', author: 'Kreyszig' },
     { title: 'Discrete and Combinatorial Mathematics', author: 'Grimaldi, Ramana' },
