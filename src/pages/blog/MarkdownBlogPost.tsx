@@ -24,15 +24,19 @@ export default function BlogPost() {
   const [nextPost, setNextPost] = useState<NavPost | null>(null)
   
   useEffect(() => {
-    if (content && (window as any).MathJax) {
-      setTimeout(() => {
-        (window as any).MathJax.typesetPromise?.()
-      }, 100)
+    if (content) {
+      window.scrollTo(0, 0);
+      // MathJax 3 typesetting
+      const postContent = document.getElementById('post-content');
+      if (postContent && (window as any).MathJax && (window as any).MathJax.typesetPromise) {
+        // Clear previous typesetting if any and typeset new content
+        (window as any).MathJax.typesetPromise([postContent])
+          .catch((err: any) => console.error('MathJax typeset failed:', err));
+      }
     }
   }, [content])
   
   useEffect(() => {
-    window.scrollTo(0, 0)
     const result = getPostContent(slug || '')
     if (result) {
       setMetadata(result.metadata)
@@ -83,7 +87,7 @@ export default function BlogPost() {
             <h1 className="text-3xl md:text-5xl font-bold text-slate-100 leading-tight">{metadata.title}</h1>
           </header>
           
-          <div className="prose-lg max-w-none text-slate-300">
+          <div id="post-content" className="prose-lg max-w-none text-slate-300">
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
           
