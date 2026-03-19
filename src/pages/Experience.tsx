@@ -29,8 +29,8 @@ const experiences = [
     period: 'December 2017 - December 2018',
     company: 'Indian Institute of Astrophysics',
     highlights: [
-      'Member of India Thirty Meter Telescope (TMT) Software team',
-      'Quality checks and vendor coordination',
+      'Member of the India Thirty Meter Telescope (TMT) Software team',
+      'Quality assurance and vendor coordination',
       'Test automation using shell scripts',
     ],
     tech: ['Java 8', 'Scala', 'Bash', 'Redis', 'Kafka', 'Jira'],
@@ -40,7 +40,7 @@ const experiences = [
     period: 'August 2017 - December 2017',
     company: 'Indian Institute of Science',
     highlights: [
-      'Teaching assistance for Algorithms and Programming course',
+      'Teaching assistant for Algorithms and Programming course',
       'Course administration and evaluation',
     ],
     tech: ['C', 'Bash', 'Vim', 'GDB'],

@@ -15,15 +15,15 @@ export default function Home() {
         
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300">
           <p>
-            Girish is an <span className="font-semibold text-cyan-400">AI/ML engineer</span> specializing in 
-            software-as-a-service solutions. He is a maintainer of several open source projects, including 
+            Girish is an <span className="font-semibold text-cyan-400">AI/ML Engineer</span> focused on
+            SaaS solutions and open source. He is a maintainer of several community projects, including
             OpenProject integrations and Mattermost plugins. Currently, he is building{' '}
-            <span className="font-semibold text-slate-200">Yojana</span> — an open source portfolio management software 
-            for small enterprises.
+            <span className="font-semibold text-slate-200">Yojana</span>—an open source portfolio management 
+            platform for small enterprises.
           </p>
           <p>
-            Beyond technology, Girish pursues <span className="font-semibold text-slate-200">philosophy and literature</span> as 
-            lifelong passions. He writes about his readings and experiences, exploring the intersection of 
+            Beyond engineering, Girish is deeply passionate about <span className="font-semibold text-slate-200">philosophy and literature</span>. 
+            He writes about his readings and experiences, exploring the intersections of 
             technology, thought, and culture.
           </p>
         </div>
