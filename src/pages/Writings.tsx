@@ -25,10 +25,21 @@ export default function Writings() {
       groups[post.category].push(post)
     })
     
-    // Sort categories: Personal last, others alphabetically
+    // Sort categories: Philosophy/AI, Philosophy, others alphabetical, Personal last
     return Object.entries(groups).sort(([a], [b]) => {
-      if (a === 'Personal') return 1
-      if (b === 'Personal') return -1
+      const priority: Record<string, number> = {
+        'Philosophy/AI': 1,
+        'Philosophy': 2,
+        'Personal': 100
+      }
+      
+      const aPriority = priority[a] || 50
+      const bPriority = priority[b] || 50
+      
+      if (aPriority !== bPriority) {
+        return aPriority - bPriority
+      }
+      
       return a.localeCompare(b)
     })
   }, [])
