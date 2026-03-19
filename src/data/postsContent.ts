@@ -8,6 +8,13 @@ import canComputerThink from '../posts/can-computer-think.md?raw'
 import godel from '../posts/godel.md?raw'
 import evaluateSoftwareLib from '../posts/evaluate-software-lib.md?raw'
 import telltaleOfTypewriter from '../posts/telltale-of-typewriter.md?raw'
+import essayOnPopulation from '../posts/essay-on-population.md?raw'
+import topicsInAlgebra from '../posts/topics-in-algebra.md?raw'
+import freeSoftwareJourney from '../posts/free-software-journey.md?raw'
+import freeOrNotFree from '../posts/free-or-not-free.md?raw'
+import doUsersControlSoftware from '../posts/do-users-control-software.md?raw'
+import revivingOlMachina from '../posts/reviving-ol-machina.md?raw'
+import myComputer from '../posts/my-computer.md?raw'
 
 interface PostMetadata {
   title: string
@@ -55,6 +62,13 @@ const postsContent: Record<string, string> = {
   'can-computer-think': canComputerThink,
   'godel': godel,
   'evaluate-software-lib': evaluateSoftwareLib,
+  'essay-on-population': essayOnPopulation,
+  'topics-in-algebra': topicsInAlgebra,
+  'free-software-journey': freeSoftwareJourney,
+  'free-or-not-free': freeOrNotFree,
+  'do-users-control-software': doUsersControlSoftware,
+  'reviving-ol-machina': revivingOlMachina,
+  'my-computer': myComputer,
 }
 
 export function getPostContent(slug: string) {

@@ -2,12 +2,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { posts } from '../data/posts'
 
-const flossPosts = [
-  { title: 'Free or Proprietary?', slug: 'free-or-proprietary' },
-  { title: 'Do users control the software they use?', slug: 'do-users-control-software' },
-  { title: 'My Free Software Journey', slug: 'free-software-journey' },
-]
-
 const archivedPosts = [
   { title: 'An Affair with C++', slug: 'affair-with-cpp', reason: 'Outdated tech' },
   { title: 'A Critique of C++', slug: 'critique-of-cpp', reason: 'Outdated tech' },
@@ -46,27 +40,6 @@ export default function Writings() {
               </span>
               <h2 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h2>
               <p className="text-sm text-slate-400">{post.excerpt}</p>
-            </motion.a>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-xl font-semibold mb-6 text-cyan-400">Coming Soon</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {flossPosts.map((post, index) => (
-            <motion.a 
-              key={post.slug}
-              href={`/writings/${post.slug}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.05 }}
-              className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300"
-            >
-              <span className="inline-block px-2 py-1 text-xs font-medium bg-blue-900/30 text-blue-400 rounded mb-3">
-                Coming soon
-              </span>
-              <h2 className="text-lg font-semibold">{post.title}</h2>
             </motion.a>
           ))}
         </div>
