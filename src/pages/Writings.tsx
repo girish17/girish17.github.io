@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useMemo } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { posts } from '../data/posts'
+import { posts, Post } from '../data/posts'
 
 const archivedPosts = [
   { title: 'An Affair with C++', slug: 'affair-with-cpp', reason: 'Outdated tech' },
@@ -13,41 +13,111 @@ const archivedPosts = [
 
 export default function Writings() {
   const [showArchived, setShowArchived] = useState(false)
+  
+  // Group posts by category
+  const groupedPosts = useMemo(() => {
+    const groups: Record<string, Post[]> = {}
+    posts.forEach(post => {
+      if (!groups[post.category]) {
+        groups[post.category] = []
+      }
+      groups[post.category].push(post)
+    })
+    return groups
+  }, [])
+
+  const [openCategories, setOpenCategories] = useState<string[]>(Object.keys(groupedPosts))
+
+  const toggleCategory = (category: string) => {
+    setOpenCategories(prev => 
+      prev.includes(category) 
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    )
+  }
+
+  const allOpen = () => setOpenCategories(Object.keys(groupedPosts))
+  const allClose = () => setOpenCategories([])
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
-      <motion.h1 
-        className="text-4xl md:text-5xl font-bold mb-12"
+      <motion.div 
+        className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Blog
-      </motion.h1>
-      
-      <section className="mb-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post, index) => (
-            <motion.div
-              key={post.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <Link 
-                to={`/writings/${post.slug}`}
-                className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group"
-              >
-                <span className="inline-block px-2 py-1 text-xs font-medium bg-cyan-900/30 text-cyan-400 rounded mb-3">
-                  {post.category}
-                </span>
-                <h2 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h2>
-                <p className="text-sm text-slate-400">{post.excerpt}</p>
-              </Link>
-            </motion.div>
-          ))}
+        <h1 className="text-4xl md:text-5xl font-bold">Blog</h1>
+        <div className="flex gap-4 text-sm">
+          <button 
+            onClick={allOpen}
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
+            Expand All
+          </button>
+          <span className="text-slate-600">|</span>
+          <button 
+            onClick={allClose}
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
+            Collapse All
+          </button>
         </div>
-      </section>
+      </motion.div>
+
+      <p className="text-slate-400 mb-12 max-w-2xl">
+        Reflections on technology, philosophy, and the pursuit of software freedom.
+      </p>
+      
+      <div className="space-y-6 mb-16">
+        {Object.entries(groupedPosts).map(([category, categoryPosts]) => (
+          <div key={category} className="border-b border-slate-800 pb-6">
+            <button 
+              onClick={() => toggleCategory(category)}
+              className="w-full flex items-center justify-between py-2 group"
+            >
+              <h2 className="text-xl font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors flex items-center gap-3">
+                <span className={`text-sm transition-transform duration-300 ${openCategories.includes(category) ? 'rotate-90' : ''}`}>
+                  ▶
+                </span>
+                {category}
+              </h2>
+              <span className="text-slate-500 text-sm">{categoryPosts.length} posts</span>
+            </button>
+
+            <AnimatePresence>
+              {openCategories.includes(category) && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid md:grid-cols-2 gap-6 mt-6">
+                    {categoryPosts.map((post, index) => (
+                      <motion.div
+                        key={post.slug}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <Link 
+                          to={`/writings/${post.slug}`}
+                          className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group h-full"
+                        >
+                          <h3 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h3>
+                          <p className="text-sm text-slate-400 line-clamp-2">{post.excerpt}</p>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
 
       <section>
         <button 
@@ -58,20 +128,25 @@ export default function Writings() {
           Archived Posts ({archivedPosts.length})
         </button>
         
-        {showArchived && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
-            {archivedPosts.map(post => (
-              <div key={post.slug} className="p-4 rounded-xl border border-slate-800 bg-slate-900/30">
-                <h2 className="font-medium text-slate-300 mb-1">{post.title}</h2>
-                <p className="text-xs text-slate-500">{post.reason}</p>
+        <AnimatePresence>
+          {showArchived && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-12">
+                {archivedPosts.map(post => (
+                  <div key={post.slug} className="p-4 rounded-xl border border-slate-800 bg-slate-900/30">
+                    <h2 className="font-medium text-slate-300 mb-1">{post.title}</h2>
+                    <p className="text-xs text-slate-500">{post.reason}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </div>
   )
