@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=0.8in}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% --- Page 1 (from image 20250214_122134.jpg) ---
+
+\begin{itemize}
+    \item Let $G$ be the group of reals under addition and $G'$ the group of non-zero reals under multiplication. \\
+    Define $\phi: G \to G'$ s.t. \\
+    $\phi(x) = 2^x$ \\
+    $\phi(x+y) = 2^{x+y} = 2^x \cdot 2^y$
+    
+    \item $\phi: \mathbb{Z} \to \mathbb{Z}_3$ \\
+    $\phi(x) = x \pmod 3$ \\
+    $\phi(x+y) = (x+y) \pmod 3$ \\
+    $= (x \pmod 3 + y \pmod 3) \pmod 3$
+    
+    \item $\phi: G \to G/N$, $N$ is a normal subgroup of $G$. \\
+    $\phi(x) = Nx$ \\
+    $\phi(x * y) = N_{x*y} = N_x N_y = \phi(x)\phi(y)$
+\end{itemize}
+
+\textbf{Def\textsuperscript{n}:} Let $\phi: G \to G'$ be a group homomorphism and let $\text{Ker } \phi = \{ x \in G : \phi(x) = e' \}$, where $e'$ is the identity of $G'$. Call $\text{Ker } \phi$ as the \textbf{KERNEL} of $\phi$.
+
+\vspace{1em}
+\textbf{Theorem:} Let $\phi: G \to G'$ be a homomorphism, then
+\begin{enumerate}
+    \item[i)] $\phi(e) = e'$
+    \item[ii)] For every $x \in G$, $\phi(x^{-1}) = [\phi(x)]^{-1}$
+\end{enumerate}
+
+\textbf{Proof:}
+\begin{enumerate}
+    \item[i)] $\phi(e) = \phi(ee) = \phi(e)\phi(e)$ \\
+    $\phi(e) = e' \phi(e) \rightarrow e'$ is the identity in $G'$ \\
+    $\phi(e)\phi(e) = e'\phi(e)$ \\
+    $\Rightarrow \phi(e) = e'$ (by right cancellation)
+    
+    \item[ii)] $\phi(x x^{-1}) = \phi(x)\phi(x^{-1})$ --- (1) \\
+    $= \phi(e) = e' = \phi(x)[\phi(x)]^{-1}$ --- (2) \\
+    $\phi(x)\phi(x^{-1}) = \phi(x)[\phi(x)]^{-1}$ \\
+    By left cancellation \\
+    $\phi(x^{-1}) = [\phi(x)]^{-1}$
+\end{enumerate}
+
+\newpage
+
+% --- Page 2 (from image 20250214_122141.jpg) ---
+
+\textbf{Theorem:} Let $\phi: G \to G'$ be a homomorphism. $\text{Ker } \phi$ is a normal subgroup of $G$.
+
+\textbf{Proof:} 
+Let $x, y \in \text{Ker } \phi$, hence $\phi(x) = \phi(y) = e'$. \\
+$\phi(xy) = \phi(x)\phi(y) = e' e' = e'$ \\
+$\Rightarrow xy \in \text{Ker } \phi$ \\
+Let $x \in \text{Ker } \phi$, hence $\phi(x) = e'$. \\
+Now, $\phi(x^{-1}) = [\phi(x)]^{-1} = [e']^{-1} = e'$ \\
+$\Rightarrow x^{-1} \in \text{Ker } \phi$ \\
+Thus $\text{Ker } \phi$ is a subgroup of $G$.
+
+\vspace{1em}
+To show that $\text{Ker } \phi$ is a normal subgroup, we need to show that for every $g \in G$ and every $k \in \text{Ker } \phi$, $gkg^{-1} \in \text{Ker } \phi$. \\
+$\phi(gkg^{-1}) = \phi(g)\phi(kg^{-1})$ \\
+$= \phi(g)\phi(k)\phi(g^{-1})$ \\
+$= \phi(g)e'\phi(g^{-1})$ \\
+$= \phi(g)\phi(g^{-1})$ \\
+$= \phi(g)[\phi(g)]^{-1}$ \\
+$= e'$ \\
+Hence $gkg^{-1} \in \text{Ker } \phi$ for every $g \in G$ and every $k \in \text{Ker } \phi$.
+
+\vspace{1.5em}
+Let $g' \in G'$, we say that $g \in G$ is an \textbf{inverse image} of $g'$ if $\phi(g) = g'$.
+
+\vspace{1em}
+\textbf{Theorem:} Let $\phi: G \to G'$ be a homomorphism with kernel $K$. For $g' \in G'$, the set of all inverse images of $g'$ is given by the set $Kx$ where $x$ is any particular inverse image of $g'$.
+
+\textbf{Proof:} Let $g' \in G'$ and $x \in G$ be such that $\phi(x) = g'$. \\
+Now, for any $k \in K$, let $y = kx$. \\
+$\phi(kx) = \phi(k)\phi(x) = e'\phi(x) = g'$
+
+\end{document}
