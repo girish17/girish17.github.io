@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { posts, Post } from '../data/posts'
+import { posts } from '../data/posts'
+import type { Post } from '../data/posts'
 
 const archivedPosts = [
   { title: 'An Affair with C++', slug: 'affair-with-cpp', reason: 'Outdated tech' },
