@@ -9,6 +9,7 @@ import godel from '../posts/godel.md?raw'
 import evaluateSoftwareLib from '../posts/evaluate-software-lib.md?raw'
 import telltaleOfTypewriter from '../posts/telltale-of-typewriter.md?raw'
 import essayOnPopulation from '../posts/essay-on-population.md?raw'
+import fields from '../posts/fields.md?raw'
 import topicsInAlgebra from '../posts/topics-in-algebra.md?raw'
 import freeSoftwareJourney from '../posts/free-software-journey.md?raw'
 import freeOrNotFree from '../posts/free-or-not-free.md?raw'
@@ -63,6 +64,7 @@ const postsContent: Record<string, string> = {
   'godel': godel,
   'evaluate-software-lib': evaluateSoftwareLib,
   'essay-on-population': essayOnPopulation,
+  'fields': fields,
   'topics-in-algebra': topicsInAlgebra,
   'free-software-journey': freeSoftwareJourney,
   'free-or-not-free': freeOrNotFree,

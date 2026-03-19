@@ -79,6 +79,12 @@ export const posts: Post[] = [
     excerpt: 'A collection of handwritten notes and diagrams covering key concepts in abstract algebra from Herstein\'s classic text.',
   },
   {
+    slug: 'fields',
+    title: 'Fields',
+    category: 'Mathematics',
+    excerpt: 'Definition and properties of fields in linear algebra.',
+  },
+  {
     slug: 'free-software-journey',
     title: 'My Free Software Journey',
     category: 'FLOSS',
