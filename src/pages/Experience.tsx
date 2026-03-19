@@ -6,7 +6,7 @@ const experiences = [
     period: 'August 2019 - Present',
     company: 'Independent',
     highlights: [
-      'Working on matteralchemy.ai - AI/ML project for material discovery using MatterGen and MatterSim',
+      'Developed Aether at matteralchemy.ai (October 2025 - Present) - An AI/ML platform for material discovery using MatterGen and MatterSim',
       'OpenProject integrations - Matrix/Element and Mattermost',
       'Yojana - Open source portfolio management software',
       'Open source software development and consulting',

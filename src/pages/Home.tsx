@@ -16,7 +16,13 @@ export default function Home() {
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300">
           <p>
             Girish is an <span className="font-semibold text-cyan-400">AI/ML Engineer</span> focused on
-            SaaS solutions and open source. He is a maintainer of several community projects, including
+            SaaS solutions and open source. Since October 2025, he has been leading the development of{' '}
+            <span className="font-semibold text-slate-200">Aether</span> at{' '}
+            <span className="font-semibold text-slate-200">matteralchemy.ai</span>, an AI-driven platform for 
+            material discovery. 
+          </p>
+          <p>
+            He is also a maintainer of several community projects, including
             OpenProject integrations and Mattermost plugins. Currently, he is building{' '}
             <span className="font-semibold text-slate-200">Yojana</span>—an open source portfolio management 
             platform for small enterprises.
