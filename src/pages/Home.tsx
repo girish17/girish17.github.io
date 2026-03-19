@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
@@ -33,18 +34,18 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <a 
-            href="/projects" 
+          <Link 
+            to="/projects" 
             className="inline-flex items-center px-8 py-4 bg-cyan-500 text-slate-950 font-semibold rounded-lg hover:bg-cyan-400 transition-colors duration-300"
           >
             View Projects
-          </a>
-          <a 
-            href="/writings" 
+          </Link>
+          <Link 
+            to="/writings" 
             className="inline-flex items-center px-8 py-4 border border-slate-600 font-semibold rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition-colors duration-300"
           >
             Read Blog
-          </a>
+          </Link>
         </motion.div>
       </motion.section>
     </div>

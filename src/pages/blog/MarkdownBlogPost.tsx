@@ -78,12 +78,12 @@ export default function BlogPost() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <a 
-          href="/writings" 
+        <Link 
+          to="/writings" 
           className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8"
         >
           ← Back to Blog
-        </a>
+        </Link>
         
         <article>
           <header className="mb-10">

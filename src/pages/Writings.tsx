@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { posts } from '../data/posts'
 
 const archivedPosts = [
@@ -27,20 +28,23 @@ export default function Writings() {
       <section className="mb-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, index) => (
-            <motion.a 
+            <motion.div
               key={post.slug}
-              href={`/writings/${post.slug}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group"
             >
-              <span className="inline-block px-2 py-1 text-xs font-medium bg-cyan-900/30 text-cyan-400 rounded mb-3">
-                {post.category}
-              </span>
-              <h2 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h2>
-              <p className="text-sm text-slate-400">{post.excerpt}</p>
-            </motion.a>
+              <Link 
+                to={`/writings/${post.slug}`}
+                className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group"
+              >
+                <span className="inline-block px-2 py-1 text-xs font-medium bg-cyan-900/30 text-cyan-400 rounded mb-3">
+                  {post.category}
+                </span>
+                <h2 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h2>
+                <p className="text-sm text-slate-400">{post.excerpt}</p>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </section>

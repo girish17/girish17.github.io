@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
+
 export default function FlossPost() {
   return (
-    <div className="max-w-2xl mx-auto py-12">
-      <a href="/writings" className="text-blue-500 hover:underline mb-6 block">← Back to Blog</a>
+    <div className="max-w-2xl mx-auto py-12 px-6">
+      <Link to="/writings" className="text-cyan-400 hover:underline mb-6 block">← Back to Blog</Link>
       
       <article>
         <h1 className="text-4xl font-bold mb-4">Coming soon with updated views</h1>

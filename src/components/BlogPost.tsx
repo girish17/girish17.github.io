@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 interface BlogPostProps {
   title: string
   category: string
@@ -7,12 +9,12 @@ interface BlogPostProps {
 export default function BlogPost({ title, category, children }: BlogPostProps) {
   return (
     <div className="max-w-3xl mx-auto py-12 px-4">
-      <a 
-        href="/writings" 
-        className="inline-flex items-center gap-2 text-amber-600 hover:underline mb-8"
+      <Link 
+        to="/writings" 
+        className="inline-flex items-center gap-2 text-cyan-400 hover:underline mb-8"
       >
         ← Back to Blog
-      </a>
+      </Link>
       
       <article>
         <header className="mb-8">
