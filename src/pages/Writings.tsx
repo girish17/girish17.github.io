@@ -15,8 +15,8 @@ const archivedPosts = [
 export default function Writings() {
   const [showArchived, setShowArchived] = useState(false)
   
-  // Group posts by category
-  const groupedPosts = useMemo(() => {
+  // Group and sort posts by category
+  const categorizedPosts = useMemo(() => {
     const groups: Record<string, Post[]> = {}
     posts.forEach(post => {
       if (!groups[post.category]) {
@@ -24,10 +24,18 @@ export default function Writings() {
       }
       groups[post.category].push(post)
     })
-    return groups
+    
+    // Sort categories: Personal last, others alphabetically
+    return Object.entries(groups).sort(([a], [b]) => {
+      if (a === 'Personal') return 1
+      if (b === 'Personal') return -1
+      return a.localeCompare(b)
+    })
   }, [])
 
-  const [openCategories, setOpenCategories] = useState<string[]>(Object.keys(groupedPosts))
+  const [openCategories, setOpenCategories] = useState<string[]>(
+    categorizedPosts.map(([cat]) => cat)
+  )
 
   const toggleCategory = (category: string) => {
     setOpenCategories(prev => 
@@ -37,7 +45,7 @@ export default function Writings() {
     )
   }
 
-  const allOpen = () => setOpenCategories(Object.keys(groupedPosts))
+  const allOpen = () => setOpenCategories(categorizedPosts.map(([cat]) => cat))
   const allClose = () => setOpenCategories([])
 
   return (
@@ -71,7 +79,7 @@ export default function Writings() {
       </p>
       
       <div className="space-y-6 mb-16">
-        {Object.entries(groupedPosts).map(([category, categoryPosts]) => (
+        {categorizedPosts.map(([category, categoryPosts]) => (
           <div key={category} className="border-b border-slate-800 pb-6">
             <button 
               onClick={() => toggleCategory(category)}
