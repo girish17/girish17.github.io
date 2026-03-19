@@ -22,9 +22,6 @@ function App() {
           <Route path="books" element={<Books />} />
           <Route path="writings" element={<Writings />} />
           <Route path="writings/:slug" element={<BlogPost />} />
-          <Route path="writings/free-or-proprietary" element={<FlossPost />} />
-          <Route path="writings/do-users-control-software" element={<FlossPost />} />
-          <Route path="writings/free-software-journey" element={<FlossPost />} />
           <Route path="photos" element={<Photos />} />
         </Route>
       </Routes>

@@ -33,8 +33,8 @@ export default function Writings() {
         'Personal': 100
       }
       
-      const aPriority = priority[a] || 50
-      const bPriority = priority[b] || 50
+      const aPriority = priority[a] ?? 50
+      const bPriority = priority[b] ?? 50
       
       if (aPriority !== bPriority) {
         return aPriority - bPriority
