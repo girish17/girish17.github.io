@@ -15,9 +15,9 @@ This repository contains the source code for my personal portfolio website, over
 ## Key Features
 
 - **Responsive Design:** Optimized for both mobile and desktop reading.
-- **Markdown-Based Blog:** Content is managed via Markdown files in `src/posts/`.
+- **Markdown-Based Blog:** Content is managed via Markdown files in `src/posts/`, with support for image captions for proper photo/image credits.
 - **LaTeX Support:** Full support for mathematical equations and symbols in blog entries.
-- **Antilibrary:** A searchable/categorized collection of books I own or recommend.
+- **Antilibrary:** A searchable and categorized collection of physical books I own, featuring detailed editions and publication years (using BCE/CE notation).
 - **Handwritten Notes:** Integrated gallery with lightbox navigation for study notes.
 - **SPA Routing:** Seamless navigation using `HashRouter` for reliable deployment.
 
@@ -26,6 +26,7 @@ This repository contains the source code for my personal portfolio website, over
 - `src/pages/`: Main application pages (Home, Blog, Projects, etc.)
 - `src/posts/`: Markdown files for all blog entries.
 - `src/data/`: Data definitions for posts and library items.
+- `assets/library.csv`: Master data file for the Antilibrary collection.
 - `public/assets/img/`: Optimized images and assets for production.
 - `.github/workflows/`: Automated deployment configuration.
 
