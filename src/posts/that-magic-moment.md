@@ -35,4 +35,4 @@ this space and time continuum ceased to perpetuate. It's constricted. There
 was something that was waited upon and it is just a coincidence that in some 
 happening we've found a new experience blossoming.
 
-![Enigma — Resin artwork designed and created by Sue Findlay](/assets/img/blog/that-magic-moment.jpeg)
+![Enigma — Resin artwork designed and created by Sue Findlay](/assets/img/blog/that-magic-moment.jpeg "Enigma — Resin artwork designed and created by Sue Findlay")

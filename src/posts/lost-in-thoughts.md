@@ -61,4 +61,4 @@ and yet we fray away from it.
 It feels so surreal after all isn't it? When the world conjures around us 
 to find the meaning of life or knowing the unknown for its true existence.
 
-![](/assets/img/blog/lost-in-thoughts.jpeg)
+![Lost in thoughts](/assets/img/blog/lost-in-thoughts.jpeg "Lost in thoughts")

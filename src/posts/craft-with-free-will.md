@@ -42,4 +42,4 @@ We are harnessing the craft, the skill to be our individual best, every time we 
 Ensure due care, address qualms, gentle and tender we care — hone and caress 
 to build a monogamous and infidel relationship with our craft.
 
-![Photo courtesy: Alex Jones in Waking Life by Richard Linklater](/assets/img/blog/craft-with-free-will.jpeg)
+![Photo courtesy: Alex Jones in Waking Life by Richard Linklater](/assets/img/blog/craft-with-free-will.jpeg "Photo courtesy: Alex Jones in Waking Life by Richard Linklater")

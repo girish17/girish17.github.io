@@ -58,4 +58,4 @@ relax for a while before I could head back home.
 This is how one does nothing and yet feel entitled for a meal which happens to be 
 a fundamental craving of one's body and mind.
 
-![Gastronomical tumults. Photo borrowed from palatesdesire.com](/assets/img/blog/day-well-spent.jpeg)
+![Gastronomical tumults. Photo borrowed from palatesdesire.com](/assets/img/blog/day-well-spent.jpeg "Gastronomical tumults. Photo borrowed from palatesdesire.com")

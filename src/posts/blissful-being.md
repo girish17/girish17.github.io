@@ -40,4 +40,4 @@ sensations — to make it conspicuous and ease without inhibitions.
 Blissfulness is an outcome of this 'ease of being', not through an effort 
 of thought and discipline.
 
-![Blissful bay by Slime Aurora](/assets/img/blog/blissful-being.jpeg)
+![Blissful bay by Slime Aurora](/assets/img/blog/blissful-being.jpeg "Blissful bay by Slime Aurora")

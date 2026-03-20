@@ -40,10 +40,10 @@ I use the [Mate](https://en.wikipedia.org/wiki/MATE_(software)) desktop environm
 ---
 
 ### A headless Libreboot X200s with external displays
-![2020 computer setup](/assets/img/2020Setup.jpg)
+![2020 computer setup](/assets/img/2020Setup.jpg "A headless Libreboot X200s with external displays. Photo created using Cheese application for GNOME")
 
 ### Current setup (Recently updated)
-![2021 computer setup](/assets/img/godMode.jpg)
+![2021 computer setup](/assets/img/godMode.jpg "Current setup (Recently updated)")
 
 ### Setup Diagram
-![setup blueprint](/assets/img/ComputerSetup2021.jpg)
+![setup blueprint](/assets/img/ComputerSetup2021.jpg "Setup Diagram. Created using LibreOffice Draw")

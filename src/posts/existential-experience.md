@@ -38,7 +38,7 @@ existence? as it does shape the way we act. It flows just like a stream of water
 Although, we can't touch it, we still can experience it. Memory would be like a 
 sea formed with these streams of thoughts.
 
-![Artwork by me - "Our thoughts and memory". Made using GIMP.](/assets/img/blog/existential-experience.png)
+![Artwork by me - "Our thoughts and memory". Made using GIMP.](/assets/img/blog/existential-experience.png "Artwork by me - “Our thoughts and memory”. Made using GIMP.")
 
 Sometimes, thought and emotion dictates the way we are. It may be more than just 
 'sometimes'. Our way of sensing the environment, beings and events has been a 

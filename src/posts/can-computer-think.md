@@ -83,7 +83,7 @@ have been proposed — free will, restricted access (only the thinker experience
 thoughts), incorrigibility (only the thinker knows with certainty the content of 
 his thought), qualia (raw sensory experience), etc.
 
-![The "standard interpretation" of the Turing Test, in which player C, the interrogator, is given the task of trying to determine which player — A or B - is a computer and which is a human. The interrogator is limited to using the responses to written questions to make the determination. (Image adapted from Saygin, 2000)](/assets/img/blog/can-computer-think.png)
+![The "standard interpretation" of the Turing Test, in which player C, the interrogator, is given the task of trying to determine which player — A or B - is a computer and which is a human. The interrogator is limited to using the responses to written questions to make the determination. (Image adapted from Saygin, 2000)](/assets/img/blog/can-computer-think.png "The “standard interpretation” of the Turing Test")
 
 ### Intentionality behind computation
 
