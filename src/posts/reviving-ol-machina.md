@@ -16,4 +16,4 @@ There are other peripheral issues which needs to be taken care of in a desktop a
 
 So, my desktop was ready to do some serious computing now. I also had two Dell Ultrasharp 24" monitors — one newly bought and one a few years old which were connected to a PCI VGA slot and D-Sub respectively. The BIOS settings were to be set in such way that the on-chip VGA got initialized first. The two monitors provide an extended display. Comes in handy during programming. One can run a browser and the other could be rendering an IDE (like IntelliJ or VSCode). Reduces the time taken for programming considerably as everything we need is visible (no need to keep toggling between those windows!).
 
-![With love and care things can be revived](/assets/img/reviveDesktop.jpeg)
+![With love and care things can be revived](/assets/img/reviveDesktop.jpeg "With love and care things can be revived")

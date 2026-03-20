@@ -148,15 +148,22 @@ export default function BlogPost() {
                 },
                 img: ({ src, alt, title }) => {
                   return (
-                    <motion.img 
-                      src={src}
-                      alt={alt}
-                      title={title}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all my-8 mx-auto shadow-lg"
-                      onClick={() => openLightbox(src || '')}
-                    />
+                    <div className="flex flex-col items-center my-8">
+                      <motion.img 
+                        src={src}
+                        alt={alt}
+                        title={title}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all shadow-lg"
+                        onClick={() => openLightbox(src || '')}
+                      />
+                      {title && (
+                        <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic text-center">
+                          {title}
+                        </p>
+                      )}
+                    </div>
                   );
                 }
               }}
