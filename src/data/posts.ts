@@ -6,12 +6,20 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  // Philosophy/AI
   {
-    slug: 'telltale-of-typewriter',
-    title: 'Telltale of a typewriter',
-    category: 'Personal',
-    excerpt: 'Out of all the random happenings of the world, I somehow land on this documentary called California Typewriter...',
+    slug: 'can-computer-think',
+    title: 'Can computers think?',
+    category: 'Philosophy/AI',
+    excerpt: 'Thinking is a non-trivial process...',
   },
+  {
+    slug: 'godel',
+    title: 'AI and Gödel',
+    category: 'Philosophy/AI',
+    excerpt: 'Gödel\'s undecideability theorem states...',
+  },
+  // Philosophy
   {
     slug: 'craft-with-free-will',
     title: 'Craft with free will',
@@ -48,42 +56,14 @@ export const posts: Post[] = [
     category: 'Philosophy',
     excerpt: 'I wake up one morning reminiscing...',
   },
-  {
-    slug: 'can-computer-think',
-    title: 'Can computers think?',
-    category: 'Philosophy/AI',
-    excerpt: 'Thinking is a non-trivial process...',
-  },
-  {
-    slug: 'godel',
-    title: 'AI and Gödel',
-    category: 'Philosophy/AI',
-    excerpt: 'Gödel\'s undecideability theorem states...',
-  },
-  {
-    slug: 'evaluate-software-lib',
-    title: 'How to evaluate a software library?',
-    category: 'Tech',
-    excerpt: 'Very often we depend on a lot of software libraries...',
-  },
+  // Literature/Economics
   {
     slug: 'essay-on-population',
     title: 'An Essay on the Principle of Population',
     category: 'Literature/Economics',
     excerpt: 'Understanding how human population functions and their impact on natural resources through Malthus\'s classic theory.',
   },
-  {
-    slug: 'topics-in-algebra',
-    title: 'Topics in Algebra',
-    category: 'Mathematics',
-    excerpt: 'A collection of handwritten notes and diagrams covering key concepts in abstract algebra from Herstein\'s classic text.',
-  },
-  {
-    slug: 'fields',
-    title: 'Fields',
-    category: 'Mathematics',
-    excerpt: 'Definition and properties of fields in linear algebra.',
-  },
+  // FLOSS
   {
     slug: 'free-software-journey',
     title: 'My Free Software Journey',
@@ -102,6 +82,26 @@ export const posts: Post[] = [
     category: 'FLOSS',
     excerpt: 'Exploring the concept of \'playful cleverness\' and the ethical implications of software control.',
   },
+  // Mathematics
+  {
+    slug: 'topics-in-algebra',
+    title: 'Topics in Algebra',
+    category: 'Mathematics',
+    excerpt: 'A collection of handwritten notes and diagrams covering key concepts in abstract algebra from Herstein\'s classic text.',
+  },
+  {
+    slug: 'fields',
+    title: 'Fields',
+    category: 'Mathematics',
+    excerpt: 'Definition and properties of fields in linear algebra.',
+  },
+  // Tech
+  {
+    slug: 'evaluate-software-lib',
+    title: 'How to evaluate a software library?',
+    category: 'Tech',
+    excerpt: 'Very often we depend on a lot of software libraries...',
+  },
   {
     slug: 'reviving-ol-machina',
     title: 'Reviving an ol’ machina',
@@ -113,5 +113,12 @@ export const posts: Post[] = [
     title: 'How do you build a computer like mine?',
     category: 'Tech',
     excerpt: 'Building a computer running completely on freedom respecting software without any proprietary binary blobs.',
+  },
+  // Personal (Last)
+  {
+    slug: 'telltale-of-typewriter',
+    title: 'Telltale of a typewriter',
+    category: 'Personal',
+    excerpt: 'Out of all the random happenings of the world, I somehow land on this documentary called California Typewriter...',
   },
 ]
