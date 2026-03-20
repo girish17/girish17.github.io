@@ -77,18 +77,18 @@ export default function Experience() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="relative pl-8 border-l-2 border-cyan-500/50"
+            className="relative pl-8 border-l-2 border-cyan-600/50 dark:border-cyan-500/50"
           >
-            <div className="absolute -left-2 top-0 w-4 h-4 bg-cyan-500 rounded-full" />
+            <div className="absolute -left-2 top-0 w-4 h-4 bg-cyan-600 dark:bg-cyan-500 rounded-full" />
             
             <div className="mb-4">
-              <h2 className="text-xl font-semibold text-slate-200">{exp.role}</h2>
-              <p className="text-slate-400">
-                {exp.company} — <span className="text-cyan-400">{exp.period}</span>
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{exp.role}</h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                {exp.company} — <span className="text-cyan-600 dark:text-cyan-400">{exp.period}</span>
               </p>
             </div>
             
-            <ul className="list-disc list-inside space-y-2 mb-4 text-slate-300">
+            <ul className="list-disc list-inside space-y-2 mb-4 text-slate-700 dark:text-slate-300">
               {exp.highlights.map((item, i) => (
                 <li key={i} className="leading-relaxed">{item}</li>
               ))}
@@ -98,7 +98,7 @@ export default function Experience() {
               {exp.tech.map(t => (
                 <span 
                   key={t}
-                  className="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-400 rounded-full"
+                  className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full"
                 >
                   {t}
                 </span>

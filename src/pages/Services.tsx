@@ -34,7 +34,7 @@ export default function Services() {
       >
         Services
       </motion.h1>
-      <p className="text-lg text-slate-400 mb-12">
+      <p className="text-lg text-slate-600 dark:text-slate-400 mb-12">
         Professional software development and consulting services.
       </p>
       
@@ -45,15 +45,15 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300"
+            className="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-600/50 dark:hover:border-cyan-500/50 hover:bg-slate-100/50 dark:hover:bg-slate-900/50 transition-all duration-300"
           >
-            <h2 className="text-xl font-semibold mb-4 text-slate-200">{service.title}</h2>
-            <p className="text-slate-400 mb-6 leading-relaxed">{service.description}</p>
+            <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-200">{service.title}</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{service.description}</p>
             <div className="flex flex-wrap gap-2">
               {service.tech.map(t => (
                 <span 
                   key={t}
-                  className="px-3 py-1 text-sm font-medium bg-slate-800 text-cyan-400 rounded-full"
+                  className="px-3 py-1 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 rounded-full"
                 >
                   {t}
                 </span>

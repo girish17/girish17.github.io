@@ -61,7 +61,7 @@ export default function Projects() {
       </motion.h1>
       
       <section className="mb-12">
-        <h2 className="text-lg font-medium mb-6 text-cyan-400">Current Projects</h2>
+        <h2 className="text-lg font-medium mb-6 text-cyan-600 dark:text-cyan-400">Current Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {currentProjects.map((project, index) => (
             <motion.a 
@@ -72,17 +72,17 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="block p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group"
+              className="block p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-600/50 dark:hover:border-cyan-500/50 hover:bg-slate-100/50 dark:hover:bg-slate-900/50 transition-all duration-300 group"
             >
-              <h3 className="text-xl font-semibold mb-4 group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-semibold mb-4 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                 {project.name}
               </h3>
-              <p className="mb-4 text-slate-400 leading-relaxed">{project.description}</p>
+              <p className="mb-4 text-slate-600 dark:text-slate-400 leading-relaxed">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.split(', ').map(t => (
                   <span 
                     key={t}
-                    className="px-3 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded-full"
+                    className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full"
                   >
                     {t}
                   </span>
@@ -96,7 +96,7 @@ export default function Projects() {
       <section>
         <button 
           onClick={() => setShowPast(!showPast)}
-          className="flex items-center gap-2 text-lg font-medium text-slate-400 hover:text-cyan-400 transition-colors mb-6"
+          className="flex items-center gap-2 text-lg font-medium text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors mb-6"
         >
           <span className={`transform transition-transform duration-300 ${showPast ? 'rotate-90' : ''}`}>▶</span>
           Past Projects
@@ -115,9 +115,9 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 rounded-xl border border-slate-800 hover:border-slate-600 transition-colors bg-slate-900/30"
+                className="block p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-colors bg-slate-50 dark:bg-slate-900/30"
               >
-                <h3 className="font-medium mb-2 text-slate-300">{project.name}</h3>
+                <h3 className="font-medium mb-2 text-slate-700 dark:text-slate-300">{project.name}</h3>
                 <p className="text-sm text-slate-500">{project.description}</p>
               </a>
             ))}

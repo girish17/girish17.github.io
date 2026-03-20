@@ -175,42 +175,42 @@ export default function Books() {
         <div className="flex gap-4 text-sm">
           <button 
             onClick={allOpen}
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
           >
             Expand All
           </button>
-          <span className="text-slate-600">|</span>
+          <span className="text-slate-300 dark:text-slate-600">|</span>
           <button 
             onClick={allClose}
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
           >
             Collapse All
           </button>
         </div>
       </motion.div>
       
-      <p className="text-slate-400 mb-8 max-w-2xl">
+      <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl">
         A collection of books I own, read, or intend to read. Some include personal notes and reflections.
       </p>
 
       {/* Search Bar */}
       <div className="mb-12 relative group">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <svg className="w-5 h-5 text-slate-500 group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-slate-500 group-focus-within:text-cyan-600 dark:group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
         <input
           type="text"
           placeholder="Search by title or author..."
-          className="w-full pl-12 pr-12 py-4 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 outline-none transition-all duration-300 text-slate-200 placeholder-slate-500"
+          className="w-full pl-12 pr-12 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-cyan-600/50 dark:focus:ring-cyan-500/50 focus:border-cyan-600 dark:focus:border-cyan-500 outline-none transition-all duration-300 text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         {searchTerm && (
           <button 
             onClick={() => setSearchTerm('')}
-            className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500 hover:text-slate-300 transition-colors"
+            className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -224,9 +224,9 @@ export default function Books() {
           <div key={category} className="mb-4">
             <button 
               onClick={() => toggleCategory(category)}
-              className="w-full text-left p-5 bg-slate-900 rounded-xl flex justify-between items-center hover:bg-slate-800 transition-colors duration-300 border border-slate-800 hover:border-cyan-500/30 group"
+              className="w-full text-left p-5 bg-white dark:bg-slate-900 rounded-xl flex justify-between items-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-300 border border-slate-200 dark:border-slate-800 hover:border-cyan-600/30 dark:hover:border-cyan-500/30 group"
             >
-              <span className="text-lg font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">{category}</span>
+              <span className="text-lg font-semibold text-slate-900 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{category}</span>
               <span className="text-slate-500">({books.length})</span>
             </button>
             
@@ -246,16 +246,16 @@ export default function Books() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.01 }}
-                        className={`p-4 rounded-lg border border-slate-800 bg-slate-900/50 flex flex-col justify-between ${book.slug ? 'ring-1 ring-cyan-500/30 hover:ring-cyan-500/60' : ''}`}
+                        className={`p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 flex flex-col justify-between ${book.slug ? 'ring-1 ring-cyan-600/30 dark:ring-cyan-500/30 hover:ring-cyan-600/60 dark:hover:ring-cyan-500/60' : ''}`}
                       >
                         <div>
-                          <h3 className="font-medium text-slate-200">{book.title}</h3>
+                          <h3 className="font-medium text-slate-900 dark:text-slate-200">{book.title}</h3>
                           <p className="text-sm text-slate-500 mt-1">{book.author}</p>
                         </div>
                         {book.slug && (
                           <Link 
                             to={`/writings/${book.slug}`}
-                            className="mt-3 text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
+                            className="mt-3 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 flex items-center gap-1"
                           >
                             Read Notes →
                           </Link>
@@ -269,11 +269,11 @@ export default function Books() {
           </div>
         ))
       ) : (
-        <div className="text-center py-20 bg-slate-900/50 rounded-2xl border border-dashed border-slate-800">
-          <p className="text-slate-400 text-lg">No books found matching "{searchTerm}"</p>
+        <div className="text-center py-20 bg-white dark:bg-slate-900/50 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800">
+          <p className="text-slate-600 dark:text-slate-400 text-lg">No books found matching "{searchTerm}"</p>
           <button 
             onClick={() => setSearchTerm('')}
-            className="mt-4 text-cyan-400 hover:underline font-medium"
+            className="mt-4 text-cyan-600 dark:text-cyan-400 hover:underline font-medium"
           >
             Clear search
           </button>

@@ -71,32 +71,32 @@ export default function Writings() {
         <div className="flex gap-4 text-sm">
           <button 
             onClick={allOpen}
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
           >
             Expand All
           </button>
-          <span className="text-slate-600">|</span>
+          <span className="text-slate-300 dark:text-slate-600">|</span>
           <button 
             onClick={allClose}
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
           >
             Collapse All
           </button>
         </div>
       </motion.div>
 
-      <p className="text-slate-400 mb-12 max-w-2xl">
+      <p className="text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">
         Reflections on technology, philosophy, and the pursuit of software freedom.
       </p>
       
       <div className="space-y-6 mb-16">
         {categorizedPosts.map(([category, categoryPosts]) => (
-          <div key={category} className="border-b border-slate-800 pb-6">
+          <div key={category} className="border-b border-slate-200 dark:border-slate-800 pb-6">
             <button 
               onClick={() => toggleCategory(category)}
               className="w-full flex items-center justify-between py-2 group"
             >
-              <h2 className="text-xl font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors flex items-center gap-3">
+              <h2 className="text-xl font-semibold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition-colors flex items-center gap-3">
                 <span className={`text-sm transition-transform duration-300 ${openCategories.includes(category) ? 'rotate-90' : ''}`}>
                   ▶
                 </span>
@@ -124,10 +124,10 @@ export default function Writings() {
                       >
                         <Link 
                           to={`/writings/${post.slug}`}
-                          className="block p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/50 transition-all duration-300 group h-full"
+                          className="block p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-600/50 dark:hover:border-cyan-500/50 hover:bg-white dark:hover:bg-slate-900/50 transition-all duration-300 group h-full"
                         >
-                          <h3 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{post.title}</h3>
-                          <p className="text-sm text-slate-400 line-clamp-2">{post.excerpt}</p>
+                          <h3 className="text-lg font-semibold mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors text-slate-900 dark:text-slate-200">{post.title}</h3>
+                          <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">{post.excerpt}</p>
                         </Link>
                       </motion.div>
                     ))}
@@ -142,7 +142,7 @@ export default function Writings() {
       <section>
         <button 
           onClick={() => setShowArchived(!showArchived)}
-          className="flex items-center gap-2 text-lg font-medium text-slate-400 hover:text-cyan-400 transition-colors mb-6"
+          className="flex items-center gap-2 text-lg font-medium text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors mb-6"
         >
           <span className={`transform transition-transform duration-300 ${showArchived ? 'rotate-90' : ''}`}>▶</span>
           Archived Posts ({archivedPosts.length})
@@ -158,8 +158,8 @@ export default function Writings() {
             >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-12">
                 {archivedPosts.map(post => (
-                  <div key={post.slug} className="p-4 rounded-xl border border-slate-800 bg-slate-900/30">
-                    <h2 className="font-medium text-slate-300 mb-1">{post.title}</h2>
+                  <div key={post.slug} className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/30">
+                    <h2 className="font-medium text-slate-800 dark:text-slate-300 mb-1">{post.title}</h2>
                     <p className="text-xs text-slate-500">{post.reason}</p>
                   </div>
                 ))}

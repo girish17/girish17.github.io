@@ -153,9 +153,9 @@ export default function Photos() {
           <section key={category.id}>
             <button 
               onClick={() => toggleCategory(category.id)}
-              className="flex items-center gap-3 text-2xl font-bold mb-6 text-slate-100 hover:text-cyan-400 transition-colors group"
+              className="flex items-center gap-3 text-2xl font-bold mb-6 text-slate-900 dark:text-slate-100 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors group"
             >
-              <span className={`text-cyan-500 transform transition-transform duration-300 ${openCategories.includes(category.id) ? 'rotate-90' : ''}`}>
+              <span className={`text-cyan-600 dark:text-cyan-500 transform transition-transform duration-300 ${openCategories.includes(category.id) ? 'rotate-90' : ''}`}>
                 ▶
               </span>
               {category.title}
@@ -179,7 +179,7 @@ export default function Photos() {
                       className="group cursor-pointer"
                       onClick={() => setSelectedPhoto(photo)}
                     >
-                      <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 group-hover:border-cyan-500/50 transition-all duration-300">
+                      <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group-hover:border-cyan-600/50 dark:group-hover:border-cyan-500/50 transition-all duration-300">
                         <img 
                           src={photo.thumbnail || photo.url} 
                           alt={photo.title}
@@ -187,7 +187,7 @@ export default function Photos() {
                         />
                       </div>
                       <div className="mt-4">
-                        <h3 className="font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">{photo.title}</h3>
+                        <h3 className="font-semibold text-slate-900 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{photo.title}</h3>
                         <p className="text-sm text-slate-500 mt-1 line-clamp-2">{photo.description}</p>
                       </div>
                     </motion.div>

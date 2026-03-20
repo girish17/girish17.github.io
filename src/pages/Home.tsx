@@ -13,22 +13,22 @@ export default function Home() {
           Hello World!
         </h1>
         
-        <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300">
+        <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300">
           <p>
-            Girish is an <span className="font-semibold text-cyan-400">AI/ML Engineer</span> focused on
+            Girish is an <span className="font-semibold text-cyan-600 dark:text-cyan-400">AI/ML Engineer</span> focused on
             SaaS solutions and open source. Since October 2025, he has been leading the development of{' '}
-            <span className="font-semibold text-slate-200">Aether</span> at{' '}
-            <span className="font-semibold text-slate-200">matteralchemy.ai</span>, an AI-driven platform for 
+            <span className="font-semibold text-slate-900 dark:text-slate-200">Aether</span> at{' '}
+            <span className="font-semibold text-slate-900 dark:text-slate-200">matteralchemy.ai</span>, an AI-driven platform for 
             material discovery. 
           </p>
           <p>
             He is also a maintainer of several community projects, including
             OpenProject integrations and Mattermost plugins. Currently, he is building{' '}
-            <span className="font-semibold text-slate-200">Yojana</span>—an open source portfolio management 
+            <span className="font-semibold text-slate-900 dark:text-slate-200">Yojana</span>—an open source portfolio management 
             platform for small enterprises.
           </p>
           <p>
-            Beyond engineering, Girish is deeply passionate about <span className="font-semibold text-slate-200">philosophy and literature</span>. 
+            Beyond engineering, Girish is deeply passionate about <span className="font-semibold text-slate-900 dark:text-slate-200">philosophy and literature</span>. 
             He writes about his readings and experiences, exploring the intersections of 
             technology, thought, and culture.
           </p>
@@ -42,13 +42,13 @@ export default function Home() {
         >
           <Link 
             to="/projects" 
-            className="inline-flex items-center px-8 py-4 bg-cyan-500 text-slate-950 font-semibold rounded-lg hover:bg-cyan-400 transition-colors duration-300"
+            className="inline-flex items-center px-8 py-4 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-slate-950 font-semibold rounded-lg hover:bg-cyan-500 dark:hover:bg-cyan-400 transition-colors duration-300"
           >
             View Projects
           </Link>
           <Link 
             to="/writings" 
-            className="inline-flex items-center px-8 py-4 border border-slate-600 font-semibold rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition-colors duration-300"
+            className="inline-flex items-center px-8 py-4 border border-slate-300 dark:border-slate-600 font-semibold rounded-lg hover:border-cyan-600 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300"
           >
             Read Blog
           </Link>

@@ -97,8 +97,8 @@ export default function BlogPost() {
   if (!content) {
     return (
       <div className="max-w-3xl mx-auto py-12 px-6">
-        <Link to="/writings" className="text-cyan-400 hover:underline">← Back to Blog</Link>
-        <h1 className="text-2xl mt-8">Post not found</h1>
+        <Link to="/writings" className="text-cyan-600 dark:text-cyan-400 hover:underline">← Back to Blog</Link>
+        <h1 className="text-2xl mt-8 text-slate-900 dark:text-slate-100">Post not found</h1>
       </div>
     )
   }
@@ -112,20 +112,20 @@ export default function BlogPost() {
       >
         <Link 
           to="/writings" 
-          className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors mb-8"
         >
           ← Back to Blog
         </Link>
         
         <article>
           <header className="mb-10">
-            <span className="inline-block px-3 py-1 text-sm font-medium bg-cyan-900/30 text-cyan-400 rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-sm font-medium bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 rounded-full mb-4">
               {metadata.category}
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-slate-100 leading-tight">{metadata.title}</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{metadata.title}</h1>
           </header>
           
-          <div id="post-content" className="prose-lg max-w-none text-slate-300">
+          <div id="post-content" className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
             <ReactMarkdown
               rehypePlugins={[rehypeRaw]}
               components={{
@@ -138,13 +138,13 @@ export default function BlogPost() {
                           e.preventDefault()
                           openLightbox(props.href || '')
                         }}
-                        className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                        className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors underline decoration-cyan-500/30 underline-offset-4"
                       >
                         {props.children}
                       </button>
                     )
                   }
-                  return <a {...props} />
+                  return <a {...props} className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors" />
                 },
                 img: ({ src, alt, title }) => {
                   return (
@@ -154,7 +154,7 @@ export default function BlogPost() {
                       title={title}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="rounded-xl border border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all my-8"
+                      className="rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all my-8 mx-auto shadow-lg"
                       onClick={() => openLightbox(src || '')}
                     />
                   );
@@ -165,14 +165,14 @@ export default function BlogPost() {
             </ReactMarkdown>
           </div>
           
-          <nav className="mt-16 pt-8 border-t border-slate-800 flex justify-between items-center">
+          <nav className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
             {prevPost ? (
               <Link 
                 to={`/writings/${prevPost.slug}`}
                 className="group flex flex-col items-start"
               >
                 <span className="text-sm text-slate-500 mb-1">← Previous</span>
-                <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors text-left">
+                <span className="text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors text-left font-medium">
                   {prevPost.title}
                 </span>
               </Link>
@@ -186,7 +186,7 @@ export default function BlogPost() {
                 className="group flex flex-col items-end text-right"
               >
                 <span className="text-sm text-slate-500 mb-1">Next →</span>
-                <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                <span className="text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors font-medium">
                   {nextPost.title}
                 </span>
               </Link>
