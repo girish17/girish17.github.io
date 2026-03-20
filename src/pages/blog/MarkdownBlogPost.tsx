@@ -10,6 +10,7 @@ interface PostMetadata {
   title: string
   category: string
   excerpt: string
+  date?: string
 }
 
 interface NavPost {
@@ -119,9 +120,20 @@ export default function BlogPost() {
         
         <article>
           <header className="mb-10">
-            <span className="inline-block px-3 py-1 text-sm font-medium bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 rounded-full mb-4">
-              {metadata.category}
-            </span>
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 rounded-full">
+                {metadata.category}
+              </span>
+              {metadata.date && (
+                <span className="text-sm text-slate-500 font-medium">
+                  {new Date(metadata.date).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              )}
+            </div>
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{metadata.title}</h1>
           </header>
           

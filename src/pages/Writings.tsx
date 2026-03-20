@@ -126,8 +126,20 @@ export default function Writings() {
                           to={`/writings/${post.slug}`}
                           className="block p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-600/50 dark:hover:border-cyan-500/50 hover:bg-white dark:hover:bg-slate-900/50 transition-all duration-300 group h-full"
                         >
-                          <h3 className="text-lg font-semibold mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors text-slate-900 dark:text-slate-200">{post.title}</h3>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">{post.excerpt}</p>
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-lg font-semibold group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors text-slate-900 dark:text-slate-200 leading-tight">{post.title}</h3>
+                          </div>
+                          <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4">{post.excerpt}</p>
+                          <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/50">
+                            <span className="text-xs font-medium text-slate-400 dark:text-slate-500">
+                              {new Date(post.date).toLocaleDateString('en-US', { 
+                                year: 'numeric', 
+                                month: 'short', 
+                                day: 'numeric' 
+                              })}
+                            </span>
+                            <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform duration-300">Read More →</span>
+                          </div>
                         </Link>
                       </motion.div>
                     ))}
