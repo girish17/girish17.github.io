@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import { getPostContent } from '../../data/postsContent'
 import { posts } from '../../data/posts'
 
@@ -23,10 +26,6 @@ interface ImageNote {
   url: string
   alt: string
 }
-
-const MATHJAX_RETRY_LIMIT = 5;
-const MATHJAX_RETRY_DELAY = 200;
-const MATHJAX_INITIAL_DELAY = 100;
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
@@ -52,24 +51,6 @@ export default function BlogPost() {
   useEffect(() => {
     if (content) {
       window.scrollTo(0, 0);
-      
-      const tryTypeset = (retryCount = 0) => {
-        const postContent = document.getElementById('post-content');
-        const mj = (window as any).MathJax;
-        
-        if (postContent && mj && mj.typesetPromise) {
-          mj.typesetClear([postContent]);
-          mj.typesetPromise([postContent])
-            .catch((err: any) => console.error('MathJax typeset failed:', err));
-        } else if (retryCount < MATHJAX_RETRY_LIMIT) {
-          // Retry a few times if MathJax is still loading
-          setTimeout(() => tryTypeset(retryCount + 1), MATHJAX_RETRY_DELAY);
-        }
-      };
-
-      // Initial attempt after a short delay for React render
-      const timer = setTimeout(() => tryTypeset(), MATHJAX_INITIAL_DELAY);
-      return () => clearTimeout(timer);
     }
   }, [content])
   
@@ -155,8 +136,8 @@ export default function BlogPost() {
           
           <div id="post-content" className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
             <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeRaw, rehypeKatex]}
               components={{
                 a: ({ node, ...props }) => {
                   const isImage = props.href?.match(/\.(?:jpg|jpeg|png|gif)$/)

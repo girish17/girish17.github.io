@@ -9,7 +9,7 @@ This repository contains the source code for my personal portfolio website, over
 - **Styling:** Tailwind CSS 4
 - **Animations:** Framer Motion
 - **Content:** Markdown (processed via `react-markdown`)
-- **Math Rendering:** MathJax 3
+- **Math Rendering:** KaTeX (via remark-math/rehype-katex)
 - **Deployment:** GitHub Pages (automated via GitHub Actions)
 
 ## Key Features
