@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 import { getPostContent } from '../../data/postsContent'
 import { posts } from '../../data/posts'
 
@@ -154,6 +155,7 @@ export default function BlogPost() {
           
           <div id="post-content" className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
             <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               components={{
                 a: ({ node, ...props }) => {
