@@ -47,13 +47,24 @@ export default function BlogPost() {
   useEffect(() => {
     if (content) {
       window.scrollTo(0, 0);
-      // MathJax 3 typesetting
-      const postContent = document.getElementById('post-content');
-      if (postContent && (window as any).MathJax && (window as any).MathJax.typesetPromise) {
-        // Clear previous typesetting if any and typeset new content
-        (window as any).MathJax.typesetPromise([postContent])
-          .catch((err: any) => console.error('MathJax typeset failed:', err));
-      }
+      
+      const tryTypeset = (retryCount = 0) => {
+        const postContent = document.getElementById('post-content');
+        const mj = (window as any).MathJax;
+        
+        if (postContent && mj && mj.typesetPromise) {
+          mj.typesetClear([postContent]);
+          mj.typesetPromise([postContent])
+            .catch((err: any) => console.error('MathJax typeset failed:', err));
+        } else if (retryCount < 5) {
+          // Retry a few times if MathJax is still loading
+          setTimeout(() => tryTypeset(retryCount + 1), 200);
+        }
+      };
+
+      // Initial attempt after a short delay for React render
+      const timer = setTimeout(() => tryTypeset(), 100);
+      return () => clearTimeout(timer);
     }
   }, [content])
   
