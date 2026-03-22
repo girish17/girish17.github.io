@@ -23,6 +23,10 @@ interface ImageNote {
   alt: string
 }
 
+const MATHJAX_RETRY_LIMIT = 5;
+const MATHJAX_RETRY_DELAY = 200;
+const MATHJAX_INITIAL_DELAY = 100;
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const [content, setContent] = useState<string>('')
@@ -56,14 +60,14 @@ export default function BlogPost() {
           mj.typesetClear([postContent]);
           mj.typesetPromise([postContent])
             .catch((err: any) => console.error('MathJax typeset failed:', err));
-        } else if (retryCount < 5) {
+        } else if (retryCount < MATHJAX_RETRY_LIMIT) {
           // Retry a few times if MathJax is still loading
-          setTimeout(() => tryTypeset(retryCount + 1), 200);
+          setTimeout(() => tryTypeset(retryCount + 1), MATHJAX_RETRY_DELAY);
         }
       };
 
       // Initial attempt after a short delay for React render
-      const timer = setTimeout(() => tryTypeset(), 100);
+      const timer = setTimeout(() => tryTypeset(), MATHJAX_INITIAL_DELAY);
       return () => clearTimeout(timer);
     }
   }, [content])
