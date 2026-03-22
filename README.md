@@ -15,7 +15,7 @@ This repository contains the source code for my personal portfolio website, over
 ## Key Features
 
 - **Responsive Design:** Optimized for both mobile and desktop reading.
-- **Markdown-Based Blog:** Content is managed via Markdown files in `src/posts/`, with support for image captions for proper photo/image credits.
+- **Markdown-Based Blog:** Content is managed via Markdown files in `src/posts/`, with support for image captions for proper photo/image credits and GFM tables.
 - **LaTeX Support:** Full support for mathematical equations and symbols in blog entries.
 - **Antilibrary:** A searchable and categorized collection of physical books I own, featuring detailed editions and publication years (using BCE/CE notation).
 - **Handwritten Notes:** Integrated gallery with lightbox navigation for study notes.
