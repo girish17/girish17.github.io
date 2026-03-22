@@ -165,7 +165,7 @@ export default function BlogPost() {
                         title={title}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all shadow-lg"
+                        className="max-w-md w-full rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer hover:border-cyan-500/50 transition-all shadow-lg"
                         onClick={() => openLightbox(src || '')}
                       />
                       {title && (
