@@ -74,6 +74,7 @@ const booksByCategory: Record<string, Book[]> = {
     { title: 'The Rebel', author: 'Albert Camus', year: '1951' },
     { title: 'Thus Spoke Zarathustra', author: 'Friedrich Nietzsche', year: '1883' },
     { title: 'Beyond Good and Evil', author: 'Friedrich Nietzsche', year: '1886' },
+    { title: 'Essays and Aphorisms', author: 'Arthur Schopenhauer', year: '1851' },
     { title: 'Meditations', author: 'Marcus Aurelius', year: '180 CE' },
     { title: 'The Republic', author: 'Plato', year: '375 BCE' },
     { title: 'The Essential Rumi', author: 'Coleman Barks', year: '1995' },
