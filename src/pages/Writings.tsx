@@ -85,8 +85,13 @@ export default function Writings() {
         </div>
       </motion.div>
 
-      <p className="text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">
+      <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-2xl">
         Reflections on technology, philosophy, and the pursuit of software freedom.
+      </p>
+      <p className="text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">
+        Beyond engineering, Girish is deeply passionate about <span className="font-semibold text-slate-900 dark:text-slate-200">philosophy and literature</span>.
+        He writes about his readings and experiences, exploring the intersections of
+        technology, thought, and culture.
       </p>
       
       <div className="space-y-6 mb-16">

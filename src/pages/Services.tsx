@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 
 const services = [
   {
-    title: 'AI/ML Software Development',
-    description: 'Custom AI/ML solutions using modern frameworks and cloud platforms.',
-    tech: ['Azure ML', 'Python', 'Jupyter'],
+    title: 'Server-side Software Development',
+    description: 'Custom backend development using modern technologies.',
+    tech: ['TypeScript', 'JavaScript', 'Java', 'Go'],
   },
   {
     title: 'Software Deployment & Orchestration',
@@ -12,13 +12,13 @@ const services = [
     tech: ['Linux', 'Docker', 'DevOps'],
   },
   {
-    title: 'Server-side Software Development',
-    description: 'Custom backend development using modern technologies.',
-    tech: ['TypeScript', 'JavaScript', 'Java', 'Go'],
+    title: 'AI/ML Software Development',
+    description: 'Custom AI/ML solutions using modern frameworks and cloud platforms.',
+    tech: ['Azure ML', 'Python', 'Jupyter'],
   },
   {
     title: 'Open Source Consulting',
-    description: 'Open source software development, integration, and advisory services.',
+    description: 'Open source software development, integration, and advisory services. Experienced in navigating strict EU data privacy, GDPR-compliant environments, and secure communications.',
     tech: ['OpenProject', 'Mattermost', 'Community'],
   },
 ]
@@ -62,6 +62,23 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
+
+      <motion.div 
+        className="mt-16 p-8 bg-slate-100 dark:bg-slate-800/50 rounded-2xl text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
+          Looking for reliable backend integration bandwidth?
+        </p>
+        <a 
+          href="mailto:contact@girishm.info"
+          className="inline-flex items-center px-8 py-4 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-slate-950 font-semibold rounded-lg hover:bg-cyan-500 dark:hover:bg-cyan-400 transition-colors duration-300"
+        >
+          Email Me Directly
+        </a>
+      </motion.div>
     </div>
   )
 }

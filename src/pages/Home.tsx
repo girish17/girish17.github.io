@@ -14,24 +14,23 @@ export default function Home() {
         </h1>
         
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300">
-          <p>
-            Girish is an <span className="font-semibold text-cyan-600 dark:text-cyan-400">AI/ML Engineer</span> focused on
-            SaaS solutions and open source. Since October 2025, he has been leading the development of{' '}
-            <span className="font-semibold text-slate-900 dark:text-slate-200">Aether</span> at{' '}
-            <span className="font-semibold text-slate-900 dark:text-slate-200">matteralchemy.ai</span>, an AI-driven platform for 
-            material discovery. 
-          </p>
-          <p>
+<p>
+          Girish is a <span className="font-semibold text-cyan-600 dark:text-cyan-400">Backend Architect</span> and <span className="font-semibold text-cyan-600 dark:text-cyan-400">Open Source Integration Specialist</span>. Currently architecting scalable multi-tenant infrastructure for{' '}
+          <span className="font-semibold text-slate-900 dark:text-slate-200">Aether</span> at{' '}
+          <span className="font-semibold text-slate-900 dark:text-slate-200">matteralchemy.ai</span>, alongside maintaining integrations for the openDesk European open-source ecosystem.
+        </p>
+          <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+            <p className="text-green-800 dark:text-green-400 font-semibold">
+              🟢 Status: Currently available for full-time (40h/week) B2B remote contracts
+            </p>
+          </div>
+          <p className="mt-6">
             He is also a maintainer of several community projects, including
             OpenProject integrations and Mattermost plugins. Currently, he is building{' '}
             <span className="font-semibold text-slate-900 dark:text-slate-200">Yojana</span>—an open source portfolio management 
             platform for small enterprises.
           </p>
-          <p>
-            Beyond engineering, Girish is deeply passionate about <span className="font-semibold text-slate-900 dark:text-slate-200">philosophy and literature</span>. 
-            He writes about his readings and experiences, exploring the intersections of 
-            technology, thought, and culture.
-          </p>
+
         </div>
         
         <motion.div 
@@ -52,6 +51,23 @@ export default function Home() {
           >
             Read Blog
           </Link>
+        </motion.div>
+
+        <motion.div 
+          className="mt-16 p-8 bg-slate-100 dark:bg-slate-800/50 rounded-2xl text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
+            Looking for reliable backend integration bandwidth?
+          </p>
+          <a 
+            href="mailto:contact@girishm.info"
+            className="inline-flex items-center px-8 py-4 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-slate-950 font-semibold rounded-lg hover:bg-cyan-500 dark:hover:bg-cyan-400 transition-colors duration-300"
+          >
+            Email Me Directly
+          </a>
         </motion.div>
       </motion.section>
     </div>

@@ -3,28 +3,32 @@ import { motion } from 'framer-motion'
 
 const currentProjects = [
   {
-    name: 'matteralchemy.ai',
-    description: 'Developed Aether - an AI/ML platform for material discovery using MatterGen and MatterSim models. Features a material designer with periodic table UI.',
-    tech: 'Azure ML, Python, Jupyter, Bash',
-    link: 'https://matteralchemy.ai',
-  },
-  {
-    name: 'Yojana',
-    description: 'Open source portfolio management software for small enterprises and teams. No vendor lock-in, free and open source.',
-    tech: 'Open source',
-    link: 'https://github.com/girish17/yojana',
-  },
-  {
     name: 'OpenProject Integrations',
     description: 'Matrix/Element and Mattermost integrations for OpenProject project management software.',
     tech: 'TypeScript, Go, Python',
     link: 'https://github.com/girish17/op-matrix',
+    github: 'https://github.com/girish17/op-matrix',
   },
   {
     name: 'op-mattermost',
     description: 'OpenProject integration for Mattermost - slash commands and plugin.',
     tech: 'Go, TypeScript',
     link: 'https://github.com/girish17/op-mattermost',
+    github: 'https://github.com/girish17/op-mattermost',
+  },
+  {
+    name: 'matteralchemy.ai',
+    description: 'Developed Aether - an AI/ML platform for material discovery using MatterGen and MatterSim models. Features a material designer with periodic table UI.',
+    tech: 'Azure ML, Python, Jupyter, Bash',
+    link: 'https://matteralchemy.ai',
+    github: null,
+  },
+  {
+    name: 'Yojana',
+    description: 'Open source portfolio management software for small enterprises and teams. No vendor lock-in, free and open source.',
+    tech: 'Open source',
+    link: 'https://github.com/girish17/yojana',
+    github: 'https://github.com/girish17/yojana',
   },
 ]
 
@@ -64,20 +68,34 @@ export default function Projects() {
         <h2 className="text-lg font-medium mb-6 text-cyan-600 dark:text-cyan-400">Current Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {currentProjects.map((project, index) => (
-            <motion.a 
+            <motion.div 
               key={project.name}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="block p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-600/50 dark:hover:border-cyan-500/50 hover:bg-slate-100/50 dark:hover:bg-slate-900/50 transition-all duration-300 group"
             >
-              <h3 className="text-xl font-semibold mb-4 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                {project.name}
-              </h3>
+              <div className="flex items-start justify-between mb-4">
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-semibold group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+                >
+                  {project.name}
+                </a>
+              </div>
               <p className="mb-4 text-slate-600 dark:text-slate-400 leading-relaxed">{project.description}</p>
+              {project.github && (
+                <a 
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-4 text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300"
+                >
+                  View on GitHub →
+                </a>
+              )}
               <div className="flex flex-wrap gap-2">
                 {project.tech.split(', ').map(t => (
                   <span 
@@ -88,7 +106,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </section>
