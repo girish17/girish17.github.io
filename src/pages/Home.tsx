@@ -16,8 +16,8 @@ export default function Home() {
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300">
 <p>
           Girish is a <span className="font-semibold text-cyan-600 dark:text-cyan-400">Backend Architect</span> and <span className="font-semibold text-cyan-600 dark:text-cyan-400">Open Source Integration Specialist</span>. Currently architecting scalable multi-tenant infrastructure for{' '}
-          <span className="font-semibold text-slate-900 dark:text-slate-200">Aether</span> at{' '}
-          <span className="font-semibold text-slate-900 dark:text-slate-200">matteralchemy.ai</span>, alongside maintaining integrations for the openDesk European open-source ecosystem.
+          Aether at{' '}
+          matteralchemy.ai, alongside maintaining integrations for the openDesk European open-source ecosystem.
         </p>
           <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
             <p className="text-green-800 dark:text-green-400 font-semibold">
@@ -27,7 +27,7 @@ export default function Home() {
           <p className="mt-6">
             He is also a maintainer of several community projects, including
             OpenProject integrations and Mattermost plugins. Currently, he is building{' '}
-            <span className="font-semibold text-slate-900 dark:text-slate-200">Yojana</span>—an open source portfolio management 
+            Yojana—an open source portfolio management 
             platform for small enterprises.
           </p>
 
