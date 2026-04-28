@@ -52,12 +52,6 @@ export default function Home() {
           >
             LinkedIn Profile
           </a>
-          <Link 
-            to="/writings" 
-            className="inline-flex items-center px-8 py-4 border border-slate-300 dark:border-slate-600 font-semibold rounded-lg hover:border-cyan-600 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300"
-          >
-            Read Blog
-          </Link>
         </motion.div>
 
         <motion.div 

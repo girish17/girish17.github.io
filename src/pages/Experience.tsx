@@ -30,6 +30,17 @@ const recentExperience = [
 
 const archivedExperience = [
   {
+    role: 'Project Engineer - I (Software)',
+    period: 'December 2017 - December 2018',
+    company: 'Indian Institute of Astrophysics',
+    highlights: [
+      'Member of the India Thirty Meter Telescope (TMT) Software team',
+      'Quality assurance and vendor coordination',
+      'Test automation using shell scripts',
+    ],
+    tech: ['Java 8', 'Scala', 'Bash', 'Redis', 'Kafka', 'Jira'],
+  },
+  {
     role: 'Teaching Assistant',
     period: 'August 2017 - December 2017',
     company: 'Indian Institute of Science',
