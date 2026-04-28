@@ -14,14 +14,14 @@ export default function Home() {
         </h1>
         
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300">
-<p>
-          Girish is a <span className="font-semibold text-cyan-600 dark:text-cyan-400">Backend Architect</span> and <span className="font-semibold text-cyan-600 dark:text-cyan-400">Open Source Integration Specialist</span>. Currently architecting scalable multi-tenant infrastructure for{' '}
-          Aether at{' '}
-          matteralchemy.ai, alongside maintaining integrations for the openDesk European open-source ecosystem.
-        </p>
+          <p>
+            Girish is a <span className="font-semibold text-cyan-600 dark:text-cyan-400">Backend Architect</span> and <span className="font-semibold text-cyan-600 dark:text-cyan-400">Open Source Integration Specialist</span>. Currently architecting scalable multi-tenant infrastructure for{' '}
+            Aether at{' '}
+            matteralchemy.ai, alongside maintaining integrations for the openDesk European open-source ecosystem.
+          </p>
           <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
             <p className="text-green-800 dark:text-green-400 font-semibold">
-              🟢 Status: Currently available for full-time (40h/week) B2B remote contracts
+              🟢 Currently available for B2B remote contracts | €25/hour
             </p>
           </div>
           <p className="mt-6">
@@ -30,7 +30,6 @@ export default function Home() {
             Yojana—an open source portfolio management 
             platform for small enterprises.
           </p>
-
         </div>
         
         <motion.div 
@@ -45,6 +44,14 @@ export default function Home() {
           >
             View Projects
           </Link>
+          <a 
+            href="https://www.linkedin.com/in/girish-m-a1b09b333/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 border border-cyan-600 dark:border-cyan-500 text-cyan-600 dark:text-cyan-400 font-semibold rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition-colors duration-300"
+          >
+            LinkedIn Profile
+          </a>
           <Link 
             to="/writings" 
             className="inline-flex items-center px-8 py-4 border border-slate-300 dark:border-slate-600 font-semibold rounded-lg hover:border-cyan-600 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300"

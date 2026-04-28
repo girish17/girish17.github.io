@@ -3,22 +3,22 @@ import { motion } from 'framer-motion'
 const services = [
   {
     title: 'Server-side Software Development',
-    description: 'Custom backend development using modern technologies.',
+    description: 'Backend development for SaaS platforms, REST APIs, and microservices. Typical engagement: 3-6 months.',
     tech: ['TypeScript', 'JavaScript', 'Java', 'Go'],
   },
   {
     title: 'Software Deployment & Orchestration',
-    description: 'GNU/Linux OS and free software installation, deployment, configuration and maintenance.',
+    description: 'GNU/Linux server management, Docker containerization, CI/CD pipelines, and DevOps automation.',
     tech: ['Linux', 'Docker', 'DevOps'],
   },
   {
     title: 'AI/ML Software Development',
-    description: 'Custom AI/ML solutions using modern frameworks and cloud platforms.',
+    description: 'Custom AI/ML solutions for data processing, analysis, and integration. Azure ML, Python, Jupyter.',
     tech: ['Azure ML', 'Python', 'Jupyter'],
   },
   {
     title: 'Open Source Consulting',
-    description: 'Open source software development, integration, and advisory services. Experienced in navigating strict EU data privacy, GDPR-compliant environments, and secure communications.',
+    description: 'Integration and advisory services for open source platforms. GDPR-compliant environments, secure communications.',
     tech: ['OpenProject', 'Mattermost', 'Community'],
   },
 ]

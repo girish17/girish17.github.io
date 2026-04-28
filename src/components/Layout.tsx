@@ -10,8 +10,6 @@ const navLinks = [
   { to: '/projects', label: 'Projects' },
   { to: '/experience', label: 'Experience' },
   { to: '/writings', label: 'Blog' },
-  { to: '/books', label: 'Antilibrary' },
-  { to: '/photos', label: 'Photos' },
 ]
 
 export default function Layout() {
@@ -130,14 +128,39 @@ export default function Layout() {
             <p className="text-sm text-slate-500">
               © 2019 to present, Girish M
             </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <a 
+                href="mailto:contact@girishm.info" 
+                className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
+                Contact
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/girish-m-a1b09b333/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
+                LinkedIn
+              </a>
+              <Link 
+                to="/photos" 
+                className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
+                Photos
+              </Link>
+              <Link 
+                to="/books" 
+                className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
+                Antilibrary
+              </Link>
+            </div>
             <p className="text-sm text-slate-500">
               Licensed under{' '}
               <a href="http://creativecommons.org/licenses/by/4.0/" className="text-cyan-600 dark:text-cyan-400 hover:underline">
                 CC BY 4.0
               </a>
-            </p>
-            <p className="text-sm text-slate-500">
-              Contact: contact at girishm dot info
             </p>
           </div>
         </div>
