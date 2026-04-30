@@ -77,24 +77,24 @@ export default function Experience() {
         Experience
       </motion.h1>
       
-      <div className="space-y-12">
+      <div className="space-y-12 h-resume">
         {/* Current Role */}
-        <motion.div 
+        <motion.article 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative pl-8 border-l-2 border-cyan-600 dark:border-cyan-500"
+          className="relative pl-8 border-l-2 border-cyan-600 dark:border-cyan-500 h-event"
         >
           <div className="absolute -left-2 top-0 w-4 h-4 bg-cyan-600 dark:bg-cyan-500 rounded-full" />
           
           <div className="mb-4">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{currentExperience.role}</h2>
+            <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-200 p-name">{currentExperience.role}</h2>
             <p className="text-slate-600 dark:text-slate-400">
-              {currentExperience.company} — <span className="text-cyan-600 dark:text-cyan-400">{currentExperience.period}</span>
+              <span className="p-org">{currentExperience.company}</span> — <span className="text-cyan-600 dark:text-cyan-400 dt-start">{currentExperience.period}</span>
             </p>
           </div>
           
-          <ul className="list-disc list-inside space-y-2 mb-4 text-slate-700 dark:text-slate-300">
+          <ul className="list-disc list-inside space-y-2 mb-4 text-slate-700 dark:text-slate-300 p-description">
             {currentExperience.highlights.map((item, i) => (
               <li key={i} className="leading-relaxed">{item}</li>
             ))}
@@ -104,33 +104,33 @@ export default function Experience() {
             {currentExperience.tech.map(t => (
               <span 
                 key={t}
-                className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full"
+                className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full p-skill"
               >
                 {t}
               </span>
             ))}
           </div>
-        </motion.div>
+        </motion.article>
 
         {/* Recent Experience */}
         {recentExperience.map((exp, index) => (
-          <motion.div 
+          <motion.article 
             key={index}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="relative pl-8 border-l-2 border-slate-300 dark:border-slate-700"
+            className="relative pl-8 border-l-2 border-slate-300 dark:border-slate-700 h-event"
           >
             <div className="absolute -left-2 top-0 w-4 h-4 bg-slate-400 dark:bg-slate-600 rounded-full" />
             
             <div className="mb-4">
-              <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{exp.role}</h2>
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-200 p-name">{exp.role}</h2>
               <p className="text-slate-600 dark:text-slate-400">
-                {exp.company} — <span className="text-slate-500 dark:text-slate-500">{exp.period}</span>
+                <span className="p-org">{exp.company}</span> — <span className="text-slate-500 dark:text-slate-500 dt-start">{exp.period}</span>
               </p>
             </div>
             
-            <ul className="list-disc list-inside space-y-2 mb-4 text-slate-700 dark:text-slate-300">
+            <ul className="list-disc list-inside space-y-2 mb-4 text-slate-700 dark:text-slate-300 p-description">
               {exp.highlights.map((item, i) => (
                 <li key={i} className="leading-relaxed">{item}</li>
               ))}
@@ -140,13 +140,13 @@ export default function Experience() {
               {exp.tech.map(t => (
                 <span 
                   key={t}
-                  className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full"
+                  className="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full p-skill"
                 >
                   {t}
                 </span>
               ))}
             </div>
-          </motion.div>
+          </motion.article>
         ))}
 
         {/* Archived Experience */}
@@ -167,20 +167,20 @@ export default function Experience() {
               className="space-y-8"
             >
               {archivedExperience.map((exp, index) => (
-                <div 
+                <article 
                   key={index}
-                  className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800"
+                  className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 h-event"
                 >
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-slate-300 dark:bg-slate-700 rounded-full opacity-50" />
                   
                   <div className="mb-4">
-                    <h2 className="text-lg font-medium text-slate-600 dark:text-slate-500">{exp.role}</h2>
+                    <h2 className="text-lg font-medium text-slate-600 dark:text-slate-500 p-name">{exp.role}</h2>
                     <p className="text-sm text-slate-500 dark:text-slate-600">
-                      {exp.company} — {exp.period}
+                      <span className="p-org">{exp.company}</span> — <span className="dt-start">{exp.period}</span>
                     </p>
                   </div>
                   
-                  <ul className="list-disc list-inside space-y-1 mb-3 text-slate-500 dark:text-slate-600 text-sm">
+                  <ul className="list-disc list-inside space-y-1 mb-3 text-slate-500 dark:text-slate-600 text-sm p-description">
                     {exp.highlights.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -190,13 +190,13 @@ export default function Experience() {
                     {exp.tech.map(t => (
                       <span 
                         key={t}
-                        className="px-2 py-0.5 text-xs font-medium bg-slate-100 dark:bg-slate-900 text-slate-400 dark:text-slate-600 rounded-full"
+                        className="px-2 py-0.5 text-xs font-medium bg-slate-100 dark:bg-slate-900 text-slate-400 dark:text-slate-600 rounded-full p-skill"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
-                </div>
+                </article>
               ))}
             </motion.div>
           )}
