@@ -51,6 +51,8 @@ const books: Book[] = [
   { title: 'Data Structure and Algorithm Analysis in C', author: 'Weiss', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
   { title: 'Data Structures Through C', author: 'Yashavant Kanetkar', categories: ['Computer Science: Algorithms & Data Structures'] },
   { title: 'Data Structures and Algorithms Made Easy', author: 'Narasimha Karumanchi', categories: ['Computer Science: Algorithms & Data Structures'] },
+  { title: 'Pattern Classification', author: 'Duda, Hart, Stork', categories: ['Computer Science: Algorithms & Data Structures'] },
+  { title: 'Pattern Recognition', author: 'Theodoridis, Koutroumbas', categories: ['Computer Science: Algorithms & Data Structures'] },
 
   { title: 'The 8051 Microcontroller', author: 'Ayala', edition: '3rd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
   { title: 'Microcomputer Systems: The 8086/8088 Family', author: 'Liu, Gibson', edition: '2nd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
@@ -83,6 +85,8 @@ const books: Book[] = [
   { title: 'Engineering Chemistry', author: 'R.V Gadag, A.N Shetty', categories: ['Mathematics & Sciences'] },
   { title: 'Fundamentals of Physics', author: 'Halliday, Resnick, Walker', edition: '6th Edition', year: '1960', categories: ['Mathematics & Sciences'] },
   { title: 'The Art of Statistics', author: 'David Spiegelhalter', year: '2019', categories: ['Mathematics & Sciences'] },
+  { title: 'A First Course in Probability', author: 'Sheldon Ross', categories: ['Mathematics & Sciences'] },
+  { title: 'Linear Algebra and Its Applications', author: 'Gilbert Strang', categories: ['Mathematics & Sciences'] },
 
   { title: 'The Trouble with Being Born', author: 'E.M. Cioran', year: '1973', categories: ['Philosophy'] },
   { title: 'Nausea', author: 'Jean-Paul Sartre', year: '1938', categories: ['Philosophy'] },
@@ -120,6 +124,7 @@ const books: Book[] = [
   { title: 'Kafka on the Shore', author: 'Haruki Murakami', year: '2002', categories: ['Literature & Fiction'] },
   { title: 'Sense and Sensibility', author: 'Jane Austen', year: '1811', categories: ['Literature & Fiction'] },
   { title: 'The Trial', author: 'Franz Kafka', year: '1925', categories: ['Literature & Fiction'] },
+  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', categories: ['Literature & Fiction'] },
 
   { title: 'The Black Swan - The Impact of the Highly Improbable', author: 'Nassim Nicholas Taleb', year: '2007', categories: ['Psychology & Business'] },
   { title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman', year: '2011', categories: ['Psychology & Business'] },
@@ -145,6 +150,7 @@ const books: Book[] = [
   { title: 'The Pocket Essential: Steven Soderbergh', author: 'Jason Wood', year: '2002', categories: ['Economics & Society'] },
 
   { title: 'Tsundoku', author: 'Taiki Raito Pym', year: '2026', categories: ['Non-Fiction'] },
+  { title: 'The Origin of Species', author: 'Charles Darwin', categories: ['Non-Fiction'] },
 ]
 
 export default function Books() {
