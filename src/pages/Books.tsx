@@ -52,7 +52,6 @@ const books: Book[] = [
   { title: 'Data Structures Through C', author: 'Yashavant Kanetkar', categories: ['Computer Science: Algorithms & Data Structures'] },
   { title: 'Data Structures and Algorithms Made Easy', author: 'Narasimha Karumanchi', categories: ['Computer Science: Algorithms & Data Structures'] },
   { title: 'Pattern Classification', author: 'Duda, Hart, Stork', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Pattern Recognition', author: 'Theodoridis, Koutroumbas', categories: ['Computer Science: Algorithms & Data Structures'] },
 
   { title: 'The 8051 Microcontroller', author: 'Ayala', edition: '3rd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
   { title: 'Microcomputer Systems: The 8086/8088 Family', author: 'Liu, Gibson', edition: '2nd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
