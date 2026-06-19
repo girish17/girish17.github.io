@@ -23,6 +23,14 @@ export default function Home() {
             <p className="text-green-800 dark:text-green-400 font-semibold">
               🟢 Currently available for B2B remote contracts | €25/hour
             </p>
+            <a
+              href="https://paypal.me/girishm17"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-green-700 dark:text-green-300 font-medium underline-offset-2 hover:underline"
+            >
+              Hire Me ↗
+            </a>
           </div>
           <p className="mt-6">
             He is also a maintainer of several community projects, including
