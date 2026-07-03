@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import csvText from '../../assets/library.csv?raw'
 
 interface Book {
   title: string
@@ -19,7 +20,7 @@ interface CategoryGroup {
 const categoryTree: CategoryGroup[] = [
   { label: 'Computer Science: Programming & Languages' },
   { label: 'Computer Science: Algorithms & Data Structures' },
-  { label: 'Computer Science: Architecture, Systems & Theory' },
+  { label: 'Computer Science: Architecture, Systems, & Theory' },
   { label: 'Mathematics & Sciences' },
   { label: 'Non-Fiction', children: ['Philosophy', 'Psychology & Business', 'Self Help', 'Economics & Society'] },
   { label: 'Literature & Fiction' },
@@ -29,128 +30,36 @@ const allCategoryNames = categoryTree.flatMap(g =>
   g.children ? [g.label, ...g.children] : [g.label]
 )
 
-const books: Book[] = [
-  { title: 'The C++ Programming Language', author: 'Bjarne Stroustrup', edition: '3rd Edition', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'The C Programming Language', author: 'Kernighan, Ritchie', edition: '2nd Edition', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Effective Java', author: 'Bloch', edition: '3rd Edition', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'JavaScript: The Good Parts', author: 'Crockford', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Introducing Python', author: 'Lubanovic', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'J2ME: The Complete Reference', author: 'Keogh, James', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Object Oriented Programming in Turbo C++', author: 'Robert Lafore', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'C++ FAQs', author: 'Cline, Lomow, Girou', edition: '2nd Edition', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Java Complete Reference', author: 'Schildt', edition: '7th Edition', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Full Stack Javascript', author: 'Mardan', categories: ['Computer Science: Programming & Languages'] },
-  { title: 'Visual Basic 6 Programming Black Book', author: 'Holzner', categories: ['Computer Science: Programming & Languages'] },
+function parseCSV(text: string): Book[] {
+  const lines = text.trim().split('\n')
+  const books: Book[] = []
+  for (let i = 1; i < lines.length; i++) {
+    const fields: string[] = []
+    let current = ''
+    let inQuotes = false
+    for (const ch of lines[i]) {
+      if (ch === '"') { inQuotes = !inQuotes; continue }
+      if (ch === ',' && !inQuotes) { fields.push(current); current = ''; continue }
+      current += ch
+    }
+    fields.push(current)
+    const [title, author, category, subcategory, edition, year] = fields
+    const categories: string[] = [subcategory ? `${category}: ${subcategory}` : category]
+    books.push({ title, author, edition: edition || undefined, year: year || undefined, categories })
+  }
+  return books
+}
 
-  { title: 'Introduction to Algorithms', author: 'Cormen, Leiserson, Rivest, Stein', edition: '3rd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Introduction to Design and Analysis of Algorithms', author: 'Levitin', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Data Structures using C and C++', author: 'Langsam, Augenstein, Tenenbaum', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Data Structures and Algorithm Analysis in C++', author: 'Weiss', edition: '3rd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Algorithm Design Manual', author: 'Skiena', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Fundamentals of Data Structures in C', author: 'Horowitz, Sahni, Anderson-Freed', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Data Structure and Algorithm Analysis in C', author: 'Weiss', edition: '2nd Edition', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Data Structures Through C', author: 'Yashavant Kanetkar', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Data Structures and Algorithms Made Easy', author: 'Narasimha Karumanchi', categories: ['Computer Science: Algorithms & Data Structures'] },
-  { title: 'Pattern Classification', author: 'Duda, Hart, Stork', categories: ['Computer Science: Algorithms & Data Structures'] },
+const bookSlugs: Record<string, string> = {
+  'Topics in Algebra': 'topics-in-algebra',
+  'Linear Algebra': 'fields',
+  'An Essay on the Principle of Population': 'essay-on-population',
+}
 
-  { title: 'The 8051 Microcontroller', author: 'Ayala', edition: '3rd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Microcomputer Systems: The 8086/8088 Family', author: 'Liu, Gibson', edition: '2nd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Computer Networking', author: 'Kurose, Ross', edition: '6th Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Design Patterns', author: 'Gamma, Helm, Johnson, Vlissides', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Object Oriented Modeling and Design with UML', author: 'Blaha, Rumbaugh', edition: '2nd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Database Management Systems', author: 'Ramakrishnan, Gehrke', edition: '3rd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Digital Design', author: 'Mano, Ciletti', edition: '4th Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'An Introduction to Formal Languages and Automata', author: 'Linz', edition: '4th Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Introduction to Automata Theory, Languages and Computation', author: 'Hopcroft, Motwani, Ullman', edition: '3rd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'An Embedded Software Primer', author: 'Simon', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'The Quality Toolbox', author: 'Nancy R. Tague', edition: '2nd Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'The Magic Garden Explained', author: 'Goodheart, Cox', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'The Magic Garden Explained Solution Manual', author: 'Goodheart', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Computer Organization', author: 'Hamacher, Vranesic, Zaky', edition: '5th Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'Operating System Principles', author: 'Silberschatz, Galvin, Gagne', edition: '7th Edition', categories: ['Computer Science: Architecture, Systems & Theory'] },
-  { title: 'The Art of Computer Systems Performance Analysis', author: 'Jain', categories: ['Computer Science: Architecture, Systems & Theory'] },
-
-  { title: 'Graph Theory and Combinatorics', author: 'Dr. D.S.C', categories: ['Mathematics & Sciences'] },
-  { title: 'Topics in Algebra', author: 'Herstein', edition: '2nd Edition', year: '1964', slug: 'topics-in-algebra', categories: ['Mathematics & Sciences'] },
-  { title: 'Higher Engineering Mathematics', author: 'Dr. B.S. Grewal', categories: ['Mathematics & Sciences'] },
-  { title: 'Discrete Mathematics for Computer Scientists and Mathematicians', author: 'Mott, Kandel, Baker', edition: '2nd Edition', year: '1986', categories: ['Mathematics & Sciences'] },
-  { title: 'Advanced Engineering Mathematics', author: 'Kreyszig', edition: '8th Edition', year: '1962', categories: ['Mathematics & Sciences'] },
-  { title: 'Advanced Engineering Mathematics Student Solution Manual', author: 'Kreyszig', categories: ['Mathematics & Sciences'] },
-  { title: 'Discrete and Combinatorial Mathematics', author: 'Grimaldi, Ramana', edition: '5th Edition', year: '1985', categories: ['Mathematics & Sciences'] },
-  { title: 'Operations Research', author: 'S.D. Sharma', categories: ['Mathematics & Sciences'] },
-  { title: 'Linear Algebra', author: 'Hoffman, Kunze', edition: '2nd Edition', year: '1961', slug: 'fields', categories: ['Mathematics & Sciences'] },
-  { title: 'How to Solve It', author: 'George Polya', year: '1945', categories: ['Mathematics & Sciences'] },
-  { title: 'Principles of Electronics', author: 'V.K Mehta, Rohit Mehta', categories: ['Mathematics & Sciences'] },
-  { title: 'Engineering Chemistry', author: 'R.V Gadag, A.N Shetty', categories: ['Mathematics & Sciences'] },
-  { title: 'Fundamentals of Physics', author: 'Halliday, Resnick, Walker', edition: '6th Edition', year: '1960', categories: ['Mathematics & Sciences'] },
-  { title: 'The Art of Statistics', author: 'David Spiegelhalter', year: '2019', categories: ['Mathematics & Sciences'] },
-  { title: 'A First Course in Probability', author: 'Sheldon Ross', categories: ['Mathematics & Sciences'] },
-  { title: 'Linear Algebra and Its Applications', author: 'Gilbert Strang', categories: ['Mathematics & Sciences'] },
-
-  { title: 'The Trouble with Being Born', author: 'E.M. Cioran', year: '1973', categories: ['Philosophy'] },
-  { title: 'Nausea', author: 'Jean-Paul Sartre', year: '1938', categories: ['Philosophy'] },
-  { title: 'The Rebel', author: 'Albert Camus', year: '1951', categories: ['Philosophy'] },
-  { title: 'Thus Spoke Zarathustra', author: 'Friedrich Nietzsche', year: '1883', categories: ['Philosophy'] },
-  { title: 'Beyond Good and Evil', author: 'Friedrich Nietzsche', year: '1886', categories: ['Philosophy'] },
-  { title: 'Essays and Aphorisms', author: 'Arthur Schopenhauer', year: '1851', categories: ['Philosophy'] },
-  { title: 'Meditations', author: 'Marcus Aurelius', year: '180 CE', categories: ['Philosophy'] },
-  { title: 'The Republic', author: 'Plato', year: '375 BCE', categories: ['Philosophy'] },
-  { title: 'The Essential Rumi', author: 'Coleman Barks', year: '1995', categories: ['Philosophy'] },
-  { title: 'The Myth of Sisyphus', author: 'Albert Camus', year: '1942', categories: ['Philosophy'] },
-
-  { title: 'Crime and Punishment', author: 'Fyodor Dostoevsky', year: '1866', categories: ['Literature & Fiction'] },
-  { title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', year: '1880', categories: ['Literature & Fiction'] },
-  { title: 'The Idiot', author: 'Fyodor Dostoevsky', year: '1869', categories: ['Literature & Fiction'] },
-  { title: 'White Nights', author: 'Fyodor Dostoevsky', year: '1848', categories: ['Literature & Fiction'] },
-  { title: 'War and Peace', author: 'Leo Tolstoy', year: '1869', categories: ['Literature & Fiction'] },
-  { title: 'Anna Karenina', author: 'Leo Tolstoy', year: '1878', categories: ['Literature & Fiction'] },
-  { title: '50 Greatest Short Stories', author: "Terry O'Brien", year: '2015', categories: ['Literature & Fiction'] },
-  { title: 'Women in Love', author: 'D.H. Lawrence', year: '1920', categories: ['Literature & Fiction'] },
-  { title: 'Atlas Shrugged', author: 'Ayn Rand', year: '1957', categories: ['Literature & Fiction'] },
-  { title: 'The Fountainhead', author: 'Ayn Rand', year: '1943', categories: ['Literature & Fiction'] },
-  { title: 'Moby-Dick', author: 'Herman Melville', year: '1851', categories: ['Literature & Fiction'] },
-  { title: 'Metamorphosis', author: 'Franz Kafka', year: '1915', categories: ['Literature & Fiction'] },
-  { title: 'Animal Farm', author: 'George Orwell', year: '1945', categories: ['Literature & Fiction'] },
-  { title: '1984', author: 'George Orwell', year: '1949', categories: ['Literature & Fiction'] },
-  { title: 'Far from the Madding Crowd', author: 'Thomas Hardy', year: '1874', categories: ['Literature & Fiction'] },
-  { title: 'Pride and Prejudice', author: 'Jane Austen', year: '1813', categories: ['Literature & Fiction'] },
-  { title: 'American Notes', author: 'Charles Dickens', year: '1842', categories: ['Literature & Fiction'] },
-  { title: 'Complete Works', author: 'Charles Dickens', categories: ['Literature & Fiction'] },
-  { title: "Master Humphrey's Clock and Life of Dickens", author: 'John Forster', year: '1872', categories: ['Literature & Fiction'] },
-  { title: 'Wuthering Heights', author: 'Emily Brontë', year: '1847', categories: ['Literature & Fiction'] },
-  { title: 'The Shining', author: 'Stephen King', year: '1977', categories: ['Literature & Fiction'] },
-  { title: 'Lolita', author: 'Vladimir Nabokov', year: '1955', categories: ['Literature & Fiction'] },
-  { title: 'Kafka on the Shore', author: 'Haruki Murakami', year: '2002', categories: ['Literature & Fiction'] },
-  { title: 'Sense and Sensibility', author: 'Jane Austen', year: '1811', categories: ['Literature & Fiction'] },
-  { title: 'The Trial', author: 'Franz Kafka', year: '1925', categories: ['Literature & Fiction'] },
-  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', categories: ['Literature & Fiction'] },
-
-  { title: 'The Black Swan - The Impact of the Highly Improbable', author: 'Nassim Nicholas Taleb', year: '2007', categories: ['Psychology & Business'] },
-  { title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman', year: '2011', categories: ['Psychology & Business'] },
-  { title: 'The Psychology of Money', author: 'Morgan Housel', year: '2020', categories: ['Psychology & Business'] },
-  { title: 'How Buffet Does It', author: 'James Pardoe', year: '2005', categories: ['Psychology & Business'] },
-  { title: 'How to Read a Book', author: 'Mortimer J. Adler and Charles Van Doren', year: '1940', categories: ['Psychology & Business'] },
-
-  { title: '7 Habits of Highly Effective People', author: 'Stephen R. Covey', year: '1989', categories: ['Self Help'] },
-  { title: 'Kaizen', author: 'Sarah Harvey', year: '2019', categories: ['Self Help'] },
-  { title: 'The Power of Positive Thinking', author: 'Norman Vincent Peale', year: '1952', categories: ['Self Help'] },
-  { title: 'As a Man Thinketh', author: 'James Allen', year: '1903', categories: ['Self Help'] },
-  { title: 'You Can Win', author: 'Shiv Khera', year: '1998', categories: ['Self Help'] },
-  { title: 'The Complete Mental Fitness Book', author: 'Tom Wujec', year: '1988', categories: ['Self Help'] },
-  { title: 'The Go-Giver', author: 'Bob Burg and John David Mann', year: '2007', categories: ['Self Help'] },
-
-  { title: 'Wealth of Nations', author: 'Adam Smith', year: '1776', categories: ['Economics & Society'] },
-  { title: 'An Essay on the Principle of Population', author: 'Thomas Robert Malthus', slug: 'essay-on-population', year: '1798', categories: ['Economics & Society'] },
-  { title: 'Consequences of Capitalism', author: 'Noam Chomsky and Marv Waterstone', year: '2021', categories: ['Economics & Society'] },
-  { title: 'The Selfish Gene', author: 'Richard Dawkins', year: '1976', categories: ['Economics & Society'] },
-  { title: 'The Singularity is Near', author: 'Ray Kurzweil', year: '2005', categories: ['Economics & Society'] },
-  { title: 'Permanent Record', author: 'Edward Snowden', year: '2019', categories: ['Economics & Society'] },
-  { title: 'Freud', author: 'Richard Webster', year: '2003', categories: ['Economics & Society'] },
-  { title: 'The Pocket Essential: Steven Soderbergh', author: 'Jason Wood', year: '2002', categories: ['Economics & Society'] },
-
-  { title: 'Tsundoku', author: 'Taiki Raito Pym', year: '2026', categories: ['Non-Fiction'] },
-  { title: 'The Origin of Species', author: 'Charles Darwin', categories: ['Non-Fiction'] },
-]
+const books: Book[] = parseCSV(csvText).map(book => ({
+  ...book,
+  slug: bookSlugs[book.title],
+}))
 
 export default function Books() {
   const [searchTerm, setSearchTerm] = useState('')
