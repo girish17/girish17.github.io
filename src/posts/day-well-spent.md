@@ -13,6 +13,8 @@ enough to cook me a delicious breakfast with Idli and Saambar (one that only mot
 know how to make). After the relishing on this stable and filling food, 
 I take out my car to head for this place in the hope of getting some work done.
 
+![](/assets/img/blog/thinkpadX200s.jpg)
+
 After a fifteen minute drive through the dilapidated roads and frenzy, I reach the 
 gates to be greeted by the security guard who asked me for my ID card. When I 
 showed my driving license, I realized that he was asking for something different. 
