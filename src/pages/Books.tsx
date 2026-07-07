@@ -144,7 +144,7 @@ export default function Books() {
       </motion.div>
 
       <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl">
-        A collection of physical books I own, read, or intend to read. Some include personal notes and reflections.
+        A collection of physical books I own, have read, or intend to read. Some include personal notes and reflections.
       </p>
 
       <div className="mb-12 relative group">
