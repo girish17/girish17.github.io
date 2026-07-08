@@ -18,7 +18,7 @@ const currentProjects = [
   },
   {
     name: 'matteralchemy.ai',
-    description: 'Developed Aether - an AI/ML platform for material discovery using MatterGen and MatterSim models. Features a material designer with periodic table UI.',
+    description: 'Developed Aether - an AI/ML platform for material discovery using diffusion models. Features a material designer with periodic table UI.',
     tech: 'Azure ML, Python, Jupyter, Bash',
     link: 'https://matteralchemy.ai',
     github: null,
