@@ -1,0 +1,249 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.980
+Hello, I am Girish.
+
+00:00:03.340 --> 00:00:09.980
+I am a backend enterprise
+architect who has experience
+
+00:00:10.020 --> 00:00:17.100
+building software systems and
+designing solutions for enterprises.
+
+00:00:18.400 --> 00:00:26.668
+I have been working with industry
+for more than 12 years now and
+
+00:00:26.708 --> 00:00:31.980
+I have worked with a university as well.
+
+00:00:33.540 --> 00:00:42.060
+I have relevant experience
+in developing software
+
+00:00:42.100 --> 00:00:49.160
+for enterprises which use
+communication systems.
+
+00:00:49.200 --> 00:00:52.880
+In my prior experience,
+
+00:00:53.520 --> 00:01:04.700
+I have worked with Cisco
+for WebEx Teams software.
+
+00:01:04.740 --> 00:01:13.940
+I have developed backend
+microservices for Cisco.
+
+00:01:14.480 --> 00:01:17.500
+Apart from that
+
+00:01:17.540 --> 00:01:27.622
+I have worked extensively
+using service-oriented
+
+00:01:27.662 --> 00:01:38.020
+architecture and built
+software as a Service, SaaS.
+
+00:01:40.060 --> 00:01:47.040
+My recent project was
+with OpenProject GmbH,
+
+00:01:47.600 --> 00:01:54.360
+a project management software
+company based in Berlin, Germany.
+
+00:01:54.860 --> 00:01:58.120
+I have built integrations to support
+
+00:01:58.160 --> 00:02:07.060
+OpenProject with communication
+platforms such as
+
+00:02:07.100 --> 00:02:11.480
+Matrix, also known as Element.
+
+00:02:11.520 --> 00:02:14.140
+I have also developed
+integrations for Mattermost
+
+00:02:16.180 --> 00:02:19.180
+and I have white-labelled
+
+00:02:19.220 --> 00:02:25.660
+OpenProject and customized
+it to allow portfolio
+
+00:02:25.700 --> 00:02:38.000
+management features which
+are free and open source.
+
+00:02:38.040 --> 00:02:45.820
+These days portfolio
+management offered by companies
+
+00:02:45.860 --> 00:02:51.160
+are proprietary by nature.
+
+00:02:51.200 --> 00:03:00.240
+Some of the few examples include
+Jira Align and IBM Apptio.
+
+00:03:01.000 --> 00:03:07.360
+To provide a free and open
+source alternative I have built
+
+00:03:07.400 --> 00:03:13.140
+Yojana which is the
+portfolio management software
+
+00:03:13.180 --> 00:03:16.080
+along with project management.
+
+00:03:16.120 --> 00:03:21.240
+It is GPL-licensed software
+
+00:03:21.280 --> 00:03:30.740
+and compatible with open
+source copyleft licenses.
+
+00:03:32.020 --> 00:03:34.460
+There is no vendor lock-in
+
+00:03:34.500 --> 00:03:41.580
+or any constraints for the
+enterprise, small teams,
+
+00:03:42.180 --> 00:03:46.760
+users who are using Yojana.
+
+00:03:49.280 --> 00:03:53.526
+I have also worked on building
+
+00:03:53.566 --> 00:04:00.555
+AI enabled chat features
+integrated with Yojana
+
+00:04:00.595 --> 00:04:06.384
+and it enables the user
+to use an LLM model
+
+00:04:06.424 --> 00:04:14.441
+which is locally hosted and
+access the features offered
+
+00:04:14.481 --> 00:04:21.299
+by the portfolio management
+software as well as
+
+00:04:21.339 --> 00:04:26.099
+project management seamlessly.
+
+00:04:26.139 --> 00:04:32.442
+One of the important
+focus areas of building
+
+00:04:32.482 --> 00:04:41.740
+Yojana has been data privacy,
+data sovereignty and open source.
+
+00:04:43.680 --> 00:04:54.500
+So this software allows
+the users to modify,
+
+00:04:54.980 --> 00:05:04.960
+change certain features and
+distribute those changes as well.
+
+00:05:05.580 --> 00:05:12.928
+It provides all those
+freedoms unlike a proprietary
+
+00:05:12.968 --> 00:05:18.805
+software which are licensed by companies
+
+00:05:18.845 --> 00:05:23.338
+and hold copyrights and patents
+
+00:05:23.378 --> 00:05:30.055
+which disallow users to
+make changes, improve,
+
+00:05:30.095 --> 00:05:35.300
+test, debug and share those changes.
+
+00:05:36.620 --> 00:05:43.995
+Yojana offers a free-as-in-freedom project
+
+00:05:44.035 --> 00:05:51.996
+management and portfolio
+management solution.
+
+00:05:52.036 --> 00:06:00.192
+And our target audience
+will be small enterprises
+
+00:06:00.232 --> 00:06:04.486
+who are building products
+
+00:06:04.526 --> 00:06:14.438
+and need these tools to be able
+to manage their work packages,
+
+00:06:14.478 --> 00:06:19.902
+schedule meetings, track costs,
+
+00:06:19.942 --> 00:06:25.951
+implement workflows and also be able
+
+00:06:25.991 --> 00:06:37.700
+to communicate with other enterprise
+software using a common webhook.
+
+00:06:41.760 --> 00:06:47.038
+So Yojana is currently under development
+
+00:06:47.078 --> 00:06:52.700
+and its build has been
+deployed for testing.
+
+00:06:54.490 --> 00:06:58.622
+There are still a lot of features
+
+00:06:58.662 --> 00:07:05.576
+that need to be tested
+thoroughly before rolling out.
+
+00:07:05.616 --> 00:07:10.057
+The repository is hosted on GitHub
+
+00:07:10.097 --> 00:07:14.847
+and there have been constant changes
+
+00:07:14.887 --> 00:07:19.483
+and bug fixes being committed to it.
+
+00:07:19.523 --> 00:07:27.518
+I am the author of Yojana and I
+am the solo contributor as of now.
+
+00:07:27.558 --> 00:07:30.608
+I guess that wraps up all
+
+00:07:30.648 --> 00:07:39.579
+I have to say about my project
+and my previous experiences. Also
+
+00:07:39.619 --> 00:07:50.368
+I host a portfolio website called
+girishm.info where all the projects,
+
+00:07:50.408 --> 00:07:58.140
+past and current, and the
+experience is mentioned.
+
+00:08:01.230 --> 00:08:02.420
+Thank you for your time.

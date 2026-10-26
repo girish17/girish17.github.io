@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import IntroVideo from '../components/IntroVideo'
 
 export default function Home() {
   return (
@@ -61,6 +62,8 @@ export default function Home() {
             LinkedIn Profile
           </a>
         </motion.div>
+
+        <IntroVideo />
 
         <motion.div 
           className="mt-16 p-8 bg-slate-100 dark:bg-slate-800/50 rounded-2xl text-center"
