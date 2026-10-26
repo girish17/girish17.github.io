@@ -76,8 +76,14 @@ export default function IntroVideo() {
         )}
       </div>
 
-      <p id="intro-video-note" className="mt-3 text-sm text-slate-500">
-        English captions available from the player controls.
+      <p id="intro-video-note" className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+        <span>English captions available from the player controls.</span>
+        <a
+          href="/transcript.html"
+          className="font-medium text-cyan-700 underline decoration-cyan-700/30 underline-offset-2 transition-colors hover:decoration-cyan-700 dark:text-cyan-400 dark:decoration-cyan-400/30 dark:hover:decoration-cyan-400"
+        >
+          Read the transcript
+        </a>
       </p>
     </motion.section>
   )
