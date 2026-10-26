@@ -1,40 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only real URLs belong here. The site uses HashRouter, so paths such as
+  /#/projects are fragments of the same document and are not separate pages;
+  listing them adds nothing. Move to real paths to index those pages.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://girishm.info/#/</loc>
-    <lastmod>2026-03-26</lastmod>
+    <loc>https://girishm.info/</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://girishm.info/#/services</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://girishm.info/#/projects</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://girishm.info/#/experience</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://girishm.info/#/writings</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://girishm.info/#/books</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://girishm.info/transcript.html</loc>
