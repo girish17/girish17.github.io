@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/",
+    "title": "Girish M - Backend Architect & Open Source Integration Specialist",
+    "description": "Backend Architect specializing in server-side development, open source integrations, and SaaS solutions. Available for B2B remote contracts at €25/hour.",
+    "changefreq": "monthly",
+    "priority": "1.0"
+  },
+  {
+    "path": "/services",
+    "title": "Services - Girish M",
+    "description": "Backend development, deployment and orchestration, AI/ML, and open source consulting for SaaS platforms and enterprises. Available for B2B remote contracts.",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/projects",
+    "title": "Projects - Girish M",
+    "description": "Open source projects: OpenProject integrations for Matrix/Element and Mattermost, Yojana portfolio management software, and Aether material discovery.",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/experience",
+    "title": "Experience - Girish M",
+    "description": "More than twelve years building enterprise software: Cisco WebEx Teams, the Thirty Meter Telescope, OpenProject GmbH, and university research.",
+    "changefreq": "monthly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/writings",
+    "title": "Writing - Girish M",
+    "description": "Essays and notes on software engineering, open source, the philosophy of mind, and technology.",
+    "changefreq": "weekly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/books",
+    "title": "Books - Girish M",
+    "description": "The antilibrary: books I have read and recommend, with notes on the ones that shaped how I build software.",
+    "changefreq": "monthly",
+    "priority": "0.5"
+  },
+  {
+    "path": "/photos",
+    "title": "Photos - Girish M",
+    "description": "Photographs taken along the way.",
+    "changefreq": "yearly",
+    "priority": "0.4"
+  }
+]

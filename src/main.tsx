@@ -8,6 +8,13 @@ window.onerror = function(message, source, lineno, colno, error) {
 };
 
 const rootElement = document.getElementById('root');
+
+// Old links used hash routing (/#/projects). Send them to the real path.
+const legacyHash = window.location.hash.match(/^#\/(.*)$/);
+if (legacyHash) {
+  window.history.replaceState(null, '', '/' + legacyHash[1]);
+}
+
 if (!rootElement) {
   console.error('Failed to find the root element');
 } else {
