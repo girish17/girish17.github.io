@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const VIDEO_SRC = '/video/intro.mp4?v=1'
-const POSTER_SRC = '/video/intro-poster.jpg?v=1'
+const POSTER_SRC = '/video/intro-poster.jpg?v=2'
 const CAPTIONS_SRC = '/video/intro.en.vtt?v=1'
 
 export default function IntroVideo() {
