@@ -53,3 +53,9 @@ desktop.ini
 
 archive/
 session-*.md
+
+# Local workspace artifacts
+/.bak/
+/girish.tex
+/girish.pdf
+/girish.out
