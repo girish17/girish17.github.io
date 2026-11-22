@@ -22,7 +22,7 @@ export default function Home() {
           </p>
           <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
             <p className="text-green-800 dark:text-green-400 font-semibold">
-              🟢 Currently available for B2B remote contracts | €25/hour
+              🟢 Currently available for B2B remote contracts | €40/hour
             </p>
             <a
               href="https://paypal.me/girishm17"
